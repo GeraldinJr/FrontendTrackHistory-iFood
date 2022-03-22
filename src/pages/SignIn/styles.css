@@ -1,0 +1,28 @@
+.container-login{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.container-login *{
+    margin: 1vh 0;
+}
+.container-login h3{
+    margin: 4vh 0;
+    text-align: center;
+}
+.container-login img{
+    width: 70vw;
+    height: 50vh;
+    margin-bottom: 4vh;
+}
+.container-login .btn-enter{
+    width: 95vw;
+    height: 5vh;
+    background-color: #EA1D2C;
+    border-radius: 8px;
+}
+.container-login .btn-enter *{
+    color: #fff;
+    font-weight: bold;
+}
