@@ -2,49 +2,44 @@ import useGlobal from "./useGlobal";
 import toast from "../helpers/toast";
 
 export default function useRequest() {
-    const {token} = useGlobal();
+  const { token } = useGlobal();
 
-    async function get() {
-        
-    }
+  //   async function get() {}
 
-    async function post(route, body, withToken) {
-        const config = withToken ? {Authorization: `Bearer ${token}`} : {};
+  async function post(route, body, withToken) {
+    const config = withToken ? { Authorization: `Bearer ${token}` } : {};
 
-        try {
-            const response = await fetch(`${process.env.REACT_APP_API_BE_URL}${route}`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    ...config
-                },
-                body: JSON.stringify(body)
-            });
-            const dataObj = await response.json();
-            if(!response.ok){
-                throw new Error(dataObj.message);
-            }
-            return dataObj;
-
-        } catch (error) {
-            console.log(error);
-            toast.messageError(error.message);
+    try {
+      const response = await fetch(
+        `${process.env.REACT_APP_API_BE_URL}${route}`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            ...config,
+          },
+          body: JSON.stringify(body),
         }
-        }
-    
-
-    async function put() {
-        
+      );
+      const dataObj = await response.json();
+      if (!response.ok) {
+        throw new Error(dataObj.message);
+      }
+      return dataObj;
+    } catch (error) {
+      console.log(error);
+      toast.messageError(error.message);
     }
+  }
 
-    async function del() {
-        
-    }
+  //   async function put() {}
 
-    return {
-        get,
-        post,
-        put,
-        del
-    }
+  //   async function del() {}
+
+  return {
+    // get,
+    post,
+    // put,
+    // del,
+  };
 }

@@ -1,4 +1,3 @@
-import imgLogin from "../../assets/login.png";
 import "./styles.css";
 import { TextField } from "@mui/material";
 import { useHistory } from "react-router-dom";
@@ -10,16 +9,17 @@ import InputAdornment from "@mui/material/InputAdornment";
 import FormControl from "@mui/material/FormControl";
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import useGlobal from "../../hooks/useGlobal";
 
 import useRequest from "../../hooks/useRequest";
 import toast from "../../helpers/toast";
+import imgLogin from "../../assets/login.png";
 
 export default function SignIn() {
   const history = useHistory();
-  const { token, setToken } = useGlobal();
-  const { get, post, put, del } = useRequest();
+  const { setToken } = useGlobal();
+  const { post } = useRequest();
 
   const [values, setValues] = useState({
     amount: "",
@@ -51,7 +51,7 @@ export default function SignIn() {
     if (!values.password || !email) {
       return toast.messageError("Preencha todos os campos");
     }
-    const body = { senha: values.password, email: email };
+    const body = { senha: values.password, email };
 
     const result = await post("/", body, false);
 
@@ -109,7 +109,7 @@ export default function SignIn() {
         {/* <button>
             <a href="/signup">Cadastrar</a>
         </button> */}
-    
+
         <button onClick={handleSubmit} className="btn-enter">
           <p>Entrar</p>
         </button>
