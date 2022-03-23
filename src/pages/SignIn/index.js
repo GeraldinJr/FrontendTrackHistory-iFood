@@ -15,6 +15,7 @@ import useGlobal from "../../hooks/useGlobal";
 import useRequest from "../../hooks/useRequest";
 import toast from "../../helpers/toast";
 import imgLogin from "../../assets/login.png";
+import Button from "../../components/Button";
 
 export default function SignIn() {
   const history = useHistory();
@@ -75,11 +76,12 @@ export default function SignIn() {
           id="outlined-basic"
           label="Email"
           variant="outlined"
+          sx={{ width: "35vh" }}
           onChange={(event) => setEmail(event.target.value)}
         />
         <FormControl
           size="small"
-          sx={{ m: 1, width: "22ch" }}
+          sx={{ m: 0, width: "35vh" }}
           variant="outlined"
         >
           <InputLabel size="small" htmlFor="outlined-adornment-password">
@@ -106,13 +108,7 @@ export default function SignIn() {
           />
         </FormControl>
 
-        {/* <button>
-            <a href="/signup">Cadastrar</a>
-        </button> */}
-
-        <button onClick={handleSubmit} className="btn-enter">
-          <p>Entrar</p>
-        </button>
+        <Button text="Entrar" onClickProp={handleSubmit} />
       </div>
     </main>
   );

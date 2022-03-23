@@ -1,11 +1,10 @@
 import { useEffect, useState } from "react";
-// import { useLocalStorage } from 'react-use';
+import { useLocalStorage } from "react-use";
 
 function useGlobalProvider() {
   const [openAddEditModal, setOpenAddEditModal] = useState(false);
   const [currentContact, setCurrentContact] = useState(false);
-  //   const [token, setToken, removeToken] = useLocalStorage('token', '');
-  const [token, setToken] = useState(false);
+  const [token, setToken, removeToken] = useLocalStorage("token", "");
 
   useEffect(() => {
     if (!openAddEditModal) {
@@ -24,7 +23,7 @@ function useGlobalProvider() {
     setCurrentContact,
     token,
     setToken,
-    // removeToken
+    removeToken,
   };
 }
 
