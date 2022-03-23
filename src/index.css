@@ -26,7 +26,7 @@ body {
 }
 #root{
   min-height: 70vh;
-  max-height: 95vh;
+  max-height: 100vh;
 }
 @media (max-width: 414.98px) {
   body {

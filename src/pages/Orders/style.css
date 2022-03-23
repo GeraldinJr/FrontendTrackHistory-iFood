@@ -1,0 +1,67 @@
+.orders {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1vh;
+}
+
+.orders h1 {
+  margin: 2vh 0;
+}
+
+.order {
+  width: 95%;
+  height: 7vh;
+  border: 2px solid;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.order:hover {
+  background-color: #ea1d2c;
+  color: #fff;
+  border: 2px solid #ea1d2c;
+}
+
+.orders .div-btns-orders {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  width: 95%;
+  margin-top: 2vh;
+}
+
+.orders .div-btns-orders > p {
+  font-size: 1.2rem;
+  width: 20%;
+  text-align: center;
+}
+
+.orders .div-btns-orders .btn {
+  font-size: 1.1rem;
+  width: 40%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  cursor: pointer;
+}
+.orders .div-btns-orders .btn:hover {
+  background-color: #fff;
+  color: #ea1d2c;
+  border: 2px solid #ea1d2c;
+}
+.orders .div-btns-orders .btn:hover p {
+  color: #ea1d2c;
+}
+
+.orders .div-btns-orders * p {
+  color: #fff;
+  font-weight: bolder;
+}
