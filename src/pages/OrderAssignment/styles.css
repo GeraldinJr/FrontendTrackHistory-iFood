@@ -3,16 +3,16 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 1vh;
 }
 
-.assignment h2 {
-    margin: 2vh 0;
-}
+/* .assignment h2 {
+    margin-top: 20px;
+} */
 
 .assignment .div-btn-assignment .css-kpm0tx-MuiButtonBase-root-MuiButton-root {
     background-color: #ea1d2c;
     color: #fff;
     border-radius: 10px;
     line-height: 3.75;
+    margin-top: 200px;
 }
