@@ -35,7 +35,6 @@ export default function useRequest() {
   //   async function put() {}
 
   //   async function del() {}
-
   return {
     // get,
     post,
