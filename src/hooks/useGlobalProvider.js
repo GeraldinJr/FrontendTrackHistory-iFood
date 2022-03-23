@@ -6,6 +6,7 @@ function useGlobalProvider() {
   const [currentContact, setCurrentContact] = useState(false);
   const [token, setToken, removeToken] = useLocalStorage("token", "");
   const [toastOn, setToastOn] = useState(false);
+  const [selectedOrder, setSelectedOrder] = useState({});
 
   useEffect(() => {
     if (!openAddEditModal) {
@@ -27,6 +28,8 @@ function useGlobalProvider() {
     removeToken,
     toastOn,
     setToastOn,
+    setSelectedOrder,
+    selectedOrder
   };
 }
 

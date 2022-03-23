@@ -1,7 +1,13 @@
 
-.btn{
+.btn {
     width: 95%;
     height: 5vh;
     background-color: #EA1D2C;
     border-radius: 8px;
+}
+.btn>p{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
