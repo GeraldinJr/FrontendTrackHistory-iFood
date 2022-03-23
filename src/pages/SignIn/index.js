@@ -57,8 +57,8 @@ export default function SignIn() {
     const result = await post("/", body, false);
 
     if (result) {
-      setToken(true);
-      history.push("/home");
+      setToken(result.token);
+      history.push("/pedidos");
     }
   }
 
@@ -76,12 +76,12 @@ export default function SignIn() {
           id="outlined-basic"
           label="Email"
           variant="outlined"
-          sx={{ width: "35vh" }}
+          sx={{ width: "62%" }}
           onChange={(event) => setEmail(event.target.value)}
         />
         <FormControl
           size="small"
-          sx={{ m: 0, width: "35vh" }}
+          sx={{ m: 0, width: "62%" }}
           variant="outlined"
         >
           <InputLabel size="small" htmlFor="outlined-adornment-password">

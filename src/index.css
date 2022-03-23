@@ -4,8 +4,32 @@
   box-sizing: border-box;
 }
 
+html{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #282727;
+  height: 100vh;
+}
+
 body {
-  margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 10px;
+  background-color: #fff;
+  width: 414px;
+  min-height: 100vh;
+}
+#root{
+  min-height: 70vh;
+  max-height: 95vh;
+}
+@media (max-width: 414.98px) {
+  body {
+    width: 100vw;
+  }
 }
