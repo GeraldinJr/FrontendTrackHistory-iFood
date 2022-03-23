@@ -16,13 +16,7 @@
     height: 50vh;
     margin-bottom: 4vh;
 }
-.container-login .btn-enter{
-    width: 95vw;
-    height: 5vh;
-    background-color: #EA1D2C;
-    border-radius: 8px;
-}
-.container-login .btn-enter *{
+.container-login .btn *{
     color: #fff;
     font-weight: bold;
 }

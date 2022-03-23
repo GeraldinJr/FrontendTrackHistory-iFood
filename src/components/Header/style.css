@@ -1,0 +1,14 @@
+.app-header {
+  height: 7vh;
+  background-color: #ea1d2c;
+  display: flex;
+  justify-content: flex-end;
+}
+.app-header button{
+    background-color: transparent;
+}
+.app-header img {
+  width: 6vw;
+  height: 6vh;
+  margin-right: 2vh;
+}

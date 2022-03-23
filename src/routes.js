@@ -8,6 +8,7 @@ import SignIn from "./pages/SignIn";
 import App from "./App";
 import { GlobalProvider } from "./context/GlobalContext";
 import useGlobal from "./hooks/useGlobal";
+import Header from "./components/Header";
 
 function ProtectedRoute(props) {
   const { token } = useGlobal();
@@ -24,6 +25,7 @@ export default function Routes(params) {
         <GlobalProvider>
           <Route exact path="/login" component={SignIn} />
           <ProtectedRoute>
+            <Header texto="lucas" />
             <Route path="/home" exact component={App} />
           </ProtectedRoute>
         </GlobalProvider>
