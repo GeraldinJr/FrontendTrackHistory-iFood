@@ -9,7 +9,7 @@ import "./helpers/pomodoroFonts/css/index.css";
 ReactDOM.render(
   <React.StrictMode>
     <Routes />
-    <ToastContainer />
+    <ToastContainer limit={1} />
   </React.StrictMode>,
   document.getElementById("root")
 );

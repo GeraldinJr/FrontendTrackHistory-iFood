@@ -2,18 +2,20 @@ import { toast } from "react-toastify";
 
 function messageError(message) {
   toast.error(message, {
-    position: "top-right",
-    autoClose: 5000,
+    position: "top-center",
+    autoClose: 3000,
     closeOnClick: true,
-    pauseOnHover: true,
+    pauseOnHover: false,
     theme: "colored",
+    draggable: true,
+    progress: undefined,
   });
 }
 
 function messageSuccess(message) {
   toast.success(message, {
     position: "top-right",
-    autoClose: 5000,
+    autoClose: 3000,
     closeOnClick: true,
     pauseOnHover: true,
     theme: "colored",

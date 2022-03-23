@@ -6,6 +6,7 @@ import {
 } from "react-router-dom";
 import SignIn from "./pages/SignIn";
 import App from "./App";
+import Orders from "./pages/Orders";
 import { GlobalProvider } from "./context/GlobalContext";
 import useGlobal from "./hooks/useGlobal";
 import Header from "./components/Header";
@@ -26,7 +27,7 @@ export default function Routes(params) {
           <Route exact path="/login" component={SignIn} />
           <ProtectedRoute>
             <Header texto="lucas" />
-            <Route path="/home" exact component={App} />
+            <Route path="/pedidos" exact component={Orders} />
           </ProtectedRoute>
         </GlobalProvider>
       </Switch>
