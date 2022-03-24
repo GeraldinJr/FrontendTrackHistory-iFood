@@ -51,6 +51,7 @@
   justify-content: space-around;
   align-items: center;
   cursor: pointer;
+  border: none;
 }
 .orders .div-btns-orders .btn:hover {
   background-color: #fff;

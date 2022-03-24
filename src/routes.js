@@ -13,7 +13,6 @@ import Header from "./components/Header";
 
 function ProtectedRoute(props) {
   const { token } = useGlobal();
-
   return (
     <Route render={() => (token ? props.children : <Redirect to="/login" />)} />
   );
@@ -21,16 +20,18 @@ function ProtectedRoute(props) {
 
 export default function Routes(params) {
   return (
-    <Router>
-      <Switch>
-        <GlobalProvider>
-          <Route exact path="/login" component={SignIn} />
-          <ProtectedRoute>
-            <Header texto="lucas" />
-            <Route path="/pedidos" exact component={Orders} />
-          </ProtectedRoute>
-        </GlobalProvider>
-      </Switch>
-    </Router>
+    <div>
+      <Router>
+        <Switch>
+          <GlobalProvider>
+            <Route exact path="/login" component={SignIn} />
+            <ProtectedRoute>
+              <Header texto="lucas" />
+              <Route path="/pedidos" exact component={Orders} />
+            </ProtectedRoute>
+          </GlobalProvider>
+        </Switch>
+      </Router>
+    </div>
   );
 }

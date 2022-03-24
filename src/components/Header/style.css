@@ -7,6 +7,7 @@
 }
 .app-header button{
     background-color: transparent;
+    border: none;
 }
 .app-header img {
   width: 4vw;
