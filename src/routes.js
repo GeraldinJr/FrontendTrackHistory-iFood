@@ -10,11 +10,12 @@ import Orders from "./pages/Orders";
 import { GlobalProvider } from "./context/GlobalContext";
 import useGlobal from "./hooks/useGlobal";
 import Header from "./components/Header";
+import OrderAssingnment from "./pages/OrderAssignment";
 
 function ProtectedRoute(props) {
   const { token } = useGlobal();
   return (
-    <Route render={() => (token ? props.children : <Redirect to="/login" />)} />
+    <Route render={() => (token ? props.children : <Redirect to="/rastreio" />)} />
   );
 }
 
