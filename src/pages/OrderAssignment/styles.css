@@ -5,9 +5,9 @@
     justify-content: center;
 }
 
-/* .assignment h2 {
-    margin-top: 20px;
-} */
+.assignment * {
+    margin: 1vh 0;
+}
 
 .assignment .div-btn-assignment .css-kpm0tx-MuiButtonBase-root-MuiButton-root {
     background-color: #ea1d2c;
@@ -15,4 +15,10 @@
     border-radius: 10px;
     line-height: 3.75;
     margin-top: 200px;
+}
+
+.assignment img {
+    width: 70%;
+    height: 90%;
+    margin-bottom: 4vh;
 }
