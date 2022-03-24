@@ -19,9 +19,10 @@ import Button from "../../components/Button";
 
 export default function SignIn() {
   const history = useHistory();
-  const { setToken } = useGlobal();
+  const { setToken, geoLocation } = useGlobal();
   const { post } = useRequest();
 
+  clearInterval(geoLocation.current);
   const [values, setValues] = useState({
     password: "",
     showPassword: false,

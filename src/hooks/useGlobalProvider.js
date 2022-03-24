@@ -1,10 +1,11 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useLocalStorage } from "react-use";
 
 function useGlobalProvider() {
   const [token, setToken, removeToken] = useLocalStorage("token", "");
   const [toastOn, setToastOn] = useState(false);
   const [selectedOrder, setSelectedOrder] = useState({});
+  const geoLocation = useRef();
 
   useEffect(() => {
     console.log(token);
@@ -17,7 +18,8 @@ function useGlobalProvider() {
     toastOn,
     setToastOn,
     setSelectedOrder,
-    selectedOrder
+    selectedOrder,
+    geoLocation,
   };
 }
 

@@ -2,6 +2,7 @@
 import { useEffect, useRef } from "react";
 import imgRastreamento from "../../assets/img-rastreamento.png";
 import Button from "../../components/Button";
+import useGlobal from "../../hooks/useGlobal";
 import "./style.css";
 
 const options = {
@@ -22,9 +23,8 @@ function error(err) {
 }
 
 export default function TrackingOrder() {
+  const { geoLocation } = useGlobal();
   const index = useRef(0);
-
-  const geoLocation = useRef();
 
   useEffect(() => {
     geoLocation.current = setInterval(() => {
@@ -32,11 +32,11 @@ export default function TrackingOrder() {
       index.current++;
       navigator.geolocation.getCurrentPosition(success, error, options);
     }, 3000);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
     <div className="div-tracking">
-      <h1>Tracking Order</h1>
       <div className="assignment">
         <h2>Pedido #123</h2>
         <img src={imgRastreamento} alt="imagem rastreamento" />
