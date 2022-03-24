@@ -3,7 +3,7 @@
 /* eslint-disable operator-linebreak */
 import { useEffect, useState } from "react";
 import "./style.css";
-// import { useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import Button from "../../components/Button";
 
 import useRequest from "../../hooks/useRequest";
@@ -12,7 +12,7 @@ import useRequest from "../../hooks/useRequest";
 export default function Orders() {
   const { get } = useRequest();
 
-  //   const history = useHistory();
+  const history = useHistory();
   //   const { setSelectedOrder, selectedOrder } = useGlobal;
 
   const [orders, setOrders] = useState([]);
@@ -38,7 +38,7 @@ export default function Orders() {
     // setSelectedOrder(result.pedido);
     // console.log("order");
     // if (result.ok) {
-    //   history.push("/pedido");
+    history.push("/pedido");
     // }
   }
 

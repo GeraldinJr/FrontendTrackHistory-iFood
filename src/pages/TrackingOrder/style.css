@@ -1,0 +1,36 @@
+.div-tracking .tracking-btns {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-top: 20px;
+}
+.div-tracking .tracking-btns > * {
+  width: 40%;
+  border: none;
+  cursor: pointer;
+}
+.div-tracking .tracking-btns > * p {
+  color: #fff;
+  font-weight: bold;
+}
+.div-tracking .tracking-btns .btn-complete {
+  background-color: #2b9042;
+}
+.div-tracking .tracking-btns .btn-complete:hover {
+  background-color: #fff;
+  border: 2px solid #2b9042;
+}
+
+.div-tracking .tracking-btns .btn-complete:hover p {
+  color: #2b9042;
+}
+
+.div-tracking .tracking-btns .btn-cancel:hover {
+  background-color: #fff;
+  border: 2px solid #ea1d2c;
+
+}
+
+.div-tracking .tracking-btns .btn-cancel:hover p {
+  color: #ea1d2c;
+}
