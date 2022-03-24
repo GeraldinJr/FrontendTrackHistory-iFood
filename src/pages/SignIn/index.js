@@ -23,10 +23,7 @@ export default function SignIn() {
   const { post } = useRequest();
 
   const [values, setValues] = useState({
-    amount: "",
     password: "",
-    weight: "",
-    weightRange: "",
     showPassword: false,
   });
   const [email, setEmail] = useState("");
@@ -46,9 +43,7 @@ export default function SignIn() {
     event.preventDefault();
   };
 
-  async function handleSubmit(event) {
-    event.preventDefault();
-
+  async function handleSubmit() {
     if (!values.password || !email) {
       return toast.messageError("Preencha todos os campos");
     }
@@ -88,6 +83,10 @@ export default function SignIn() {
             Senha
           </InputLabel>
           <OutlinedInput
+            onKeyDown={(e) => {
+              // eslint-disable-next-line no-unused-expressions
+              e.key === "Enter" ? handleSubmit() : null;
+            }}
             id="outlined-adornment-password"
             type={values.showPassword ? "text" : "password"}
             value={values.password}

@@ -3,12 +3,15 @@
   background-color: #ea1d2c;
   display: flex;
   justify-content: flex-end;
+  margin: 2vh 0;
 }
 .app-header button{
     background-color: transparent;
+    border: none;
 }
 .app-header img {
-  width: 6vw;
-  height: 6vh;
+  width: 4vw;
+  height: 4vh;
   margin-right: 2vh;
+  cursor: pointer;
 }

@@ -6,8 +6,6 @@ export default function useRequest() {
 
   async function get(route, withToken) {
     const config = withToken ? { Authorization: `Bearer ${token}` } : {};
-    console.log(`token: ${token}`);
-    console.log(config);
     try {
       const response = await fetch(
         `${process.env.REACT_APP_API_BE_URL}${route}`,
@@ -33,7 +31,6 @@ export default function useRequest() {
 
   async function post(route, body, withToken) {
     const config = withToken ? { Authorization: `Bearer ${token}` } : {};
-
     try {
       const response = await fetch(
         `${process.env.REACT_APP_API_BE_URL}${route}`,
@@ -59,7 +56,6 @@ export default function useRequest() {
 
   async function put(route, body, withToken) {
     const config = withToken ? { Authorization: `Bearer ${token}` } : {};
-
     try {
       const response = await fetch(
         `${process.env.REACT_APP_API_BE_URL}${route}`,
