@@ -1,3 +1,5 @@
+/* eslint-disable object-curly-newline */
+/* eslint-disable operator-linebreak */
 /* eslint-disable indent */
 import { useEffect, useRef } from "react";
 import imgRastreamento from "../../assets/img-rastreamento.png";
@@ -22,7 +24,8 @@ function error(err) {
 }
 
 export default function TrackingOrder() {
-  const { geoLocation, setOpenModal, setModalText } = useGlobal();
+  const { geoLocation, setOpenModal, setModalText, selectedOrder } =
+    useGlobal();
   const index = useRef(0);
 
   useEffect(() => {
@@ -47,10 +50,9 @@ export default function TrackingOrder() {
   return (
     <div className="div-tracking">
       <div className="">
-        <h2>Pedido #123</h2>
+        <h2>Pedido {selectedOrder.id}</h2>
         <img src={imgRastreamento} alt="imagem rastreamento" />
-
-        <h3>Cliente: #123</h3>
+        <h3>Cliente: {selectedOrder.cliente.nome}</h3>
       </div>
       <div className="tracking-btns">
         <Button

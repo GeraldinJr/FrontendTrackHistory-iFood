@@ -1,6 +1,6 @@
 import "./styles.css";
 import { TextField } from "@mui/material";
-import { /* useHistory, */ Link } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 
 import IconButton from "@mui/material/IconButton";
 import OutlinedInput from "@mui/material/OutlinedInput";
@@ -11,20 +11,22 @@ import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import { useState } from "react";
 
-// import useRequest from "../../hooks/useRequest";
+import useRequest from "../../hooks/useRequest";
 import toast from "../../helpers/toast";
 import imgLogin from "../../assets/login.png";
 import Button from "../../components/Button";
 
 export default function SignUp() {
-  // const history = useHistory();
-  // const { post } = useRequest();
+  const history = useHistory();
+  const { post } = useRequest();
 
   const [values, setValues] = useState({
     password: "",
     showPassword: false,
-    confirmPassword: "",
-    showConfirmPassword: false,
+  });
+  const [valuesConfirm, setValuesConfirm] = useState({
+    password: "",
+    showPassword: false,
   });
 
   const [email, setEmail] = useState("");
@@ -34,6 +36,10 @@ export default function SignUp() {
     setValues({ ...values, [prop]: event.target.value });
   };
 
+  const handleChangeConfirm = (prop) => (event) => {
+    setValuesConfirm({ ...valuesConfirm, [prop]: event.target.value });
+  };
+
   const handleClickShowPassword = () => {
     setValues({
       ...values,
@@ -41,9 +47,9 @@ export default function SignUp() {
     });
   };
   const handleClickShowConfirmPassword = () => {
-    setValues({
-      ...values,
-      showPassword: !values.showPassword,
+    setValuesConfirm({
+      ...valuesConfirm,
+      showPassword: !valuesConfirm.showPassword,
     });
   };
 
@@ -52,25 +58,24 @@ export default function SignUp() {
   };
 
   async function handleSubmit() {
-    console.log(values);
-    if (!values.password || !email || !nome || !values.confirmPassword) {
+    if (!values.password || !email || !nome || !valuesConfirm.password) {
       return toast.messageError("Preencha todos os campos");
     }
-    if (values.password !== values.confirmPassword) {
+    if (values.password !== valuesConfirm.password) {
       return toast.messageError("As senhas não são iguais");
     }
-    // const body = {
-    //   email,
-    //   nome,
-    //   senha: values.password,
-    //   confirmPassword: values.confirmPassword,
-    // };
+    const body = {
+      email,
+      nome,
+      senha: values.password,
+      confirmacao_senha: valuesConfirm.password,
+    };
 
-    // const result = await post("/", body, false);
-
-    // if (result) {
-    //   history.push("/login");
-    // }
+    const result = await post("/pessoa-entregadora/cadastro", body, false);
+    if (result) {
+      history.push("/login");
+      toast.messageSuccess("Cadastro realizado com sucesso");
+    }
   }
   return (
     <main>
@@ -144,9 +149,9 @@ export default function SignUp() {
               e.key === "Enter" ? handleSubmit() : null;
             }}
             id="outlined-adornment-password"
-            type={values.showConfirmPassword ? "text" : "confirmPassword"}
-            value={values.confirmPassword}
-            onChange={handleChange("confirmPassword")}
+            type={valuesConfirm.showPassword ? "text" : "password"}
+            value={valuesConfirm.password}
+            onChange={handleChangeConfirm("password")}
             endAdornment={
               <InputAdornment position="end">
                 <IconButton
@@ -155,7 +160,11 @@ export default function SignUp() {
                   onMouseDown={handleMouseDownPassword}
                   edge="end"
                 >
-                  {values.showPassword ? <VisibilityOff /> : <Visibility />}
+                  {valuesConfirm.showPassword ? (
+                    <VisibilityOff />
+                  ) : (
+                    <Visibility />
+                  )}
                 </IconButton>
               </InputAdornment>
             }

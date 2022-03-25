@@ -13,11 +13,13 @@ function messageError(message) {
 }
 function messageSuccess(message) {
   toast.success(message, {
-    position: "top-right",
-    autoClose: 3000,
+    position: "top-center",
+    autoClose: 5000,
     closeOnClick: true,
-    pauseOnHover: true,
+    pauseOnHover: false,
     theme: "colored",
+    draggable: true,
+    progress: undefined,
   });
 }
 

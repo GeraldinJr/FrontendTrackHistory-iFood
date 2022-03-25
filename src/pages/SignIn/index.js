@@ -48,11 +48,11 @@ export default function SignIn() {
     }
     const body = { senha: values.password, email, setNomeEntregador };
 
-    const result = await post("/", body, false);
+    const result = await post("/pessoa-entregadora/login", body, false);
 
     if (result) {
       setToken(result.token);
-      setNomeEntregador(result.entregador.nome);
+      setNomeEntregador(result.nome);
       history.push("/pedidos");
     }
   }
