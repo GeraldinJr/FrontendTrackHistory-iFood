@@ -26,7 +26,6 @@ body {
   background-color: #fff;
   width: 414px;
   min-height: 100vh;
-  max-height: 100vh;
 }
 .container-top {
   position: fixed;
