@@ -9,23 +9,18 @@ html {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  min-height: 100vh;
 }
 
 body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  border-radius: 10px;
-  min-height: 100vh;
   background-color: #282727;
 }
 #root {
   background-color: #fff;
   width: 414px;
-  min-height: 100vh;
+  border-radius: 10px;
 }
 .container-top {
   position: fixed;
@@ -34,6 +29,14 @@ body {
   width: 100%;
   z-index: 1;
   background-color: #282727;
+}
+main{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  padding: 10vh 0;
 }
 @media (max-width: 414.98px) {
   html {
@@ -52,3 +55,9 @@ body {
     width: 100vw;
   }
 }
+  @media (max-height: 744px) {
+    main{
+      height: max-content;
+    }
+  }
+
