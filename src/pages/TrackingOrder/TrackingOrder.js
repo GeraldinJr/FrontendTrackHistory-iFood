@@ -23,7 +23,7 @@ function error(err) {
 }
 
 export default function TrackingOrder() {
-  const { geoLocation } = useGlobal();
+  const { geoLocation, setOpenModal, setModalText } = useGlobal();
   const index = useRef(0);
 
   useEffect(() => {
@@ -35,9 +35,19 @@ export default function TrackingOrder() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  function handleClick(params) {
+    if (params === "confirm") {
+      setOpenModal(true);
+      setModalText("CONFIRMAR");
+    } else {
+      setOpenModal(true);
+      setModalText("CANCELAR");
+    }
+  }
+
   return (
     <div className="div-tracking">
-      <div className="assignment">
+      <div className="">
         <h2>Pedido #123</h2>
         <img src={imgRastreamento} alt="imagem rastreamento" />
 
@@ -46,14 +56,14 @@ export default function TrackingOrder() {
       <div className="tracking-btns">
         <Button
           onClickProp={() => {
-            clearInterval(geoLocation.current);
+            handleClick("confirm");
           }}
           clsName="btn-complete"
           text="Concluir"
         />
         <Button
           onClickProp={() => {
-            clearInterval(geoLocation.current);
+            handleClick("cancel");
           }}
           clsName="btn-cancel"
           text="Cancelar"

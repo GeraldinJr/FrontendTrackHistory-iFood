@@ -1,24 +1,39 @@
 .assignment {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
 }
 
 .assignment * {
-    margin: 1vh 0;
+  margin: 1vh 0;
 }
 
-.assignment .div-btn-assignment .css-kpm0tx-MuiButtonBase-root-MuiButton-root {
-    background-color: #ea1d2c;
-    color: #fff;
-    border-radius: 10px;
-    line-height: 3.75;
-    margin-top: 200px;
+.assignment .div-btn-assignment {
+  background-color: #ea1d2c;
+  margin-top: 5vh;
+  border: none;
+  cursor: pointer;
+  height: 7vh;
+  width: 20vh;
+}
+.assignment .div-btn-assignment p {
+  color: #fff;
+  font-weight: bold;
+}
+
+.assignment .div-btn-assignment:hover {
+  background-color: #fff;
+  border: 2px solid #ea1d2c;
+}
+
+.assignment .div-btn-assignment:hover p {
+  color: #ea1d2c;
 }
 
 .assignment img {
-    width: 70%;
-    height: 90%;
-    margin-bottom: 4vh;
+  width: 70%;
+  height: 35%;
+  margin: 4vh 0;
 }

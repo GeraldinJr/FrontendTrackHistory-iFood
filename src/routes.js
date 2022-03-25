@@ -12,6 +12,7 @@ import useGlobal from "./hooks/useGlobal";
 import Header from "./components/Header";
 import OrderAssingnment from "./pages/OrderAssignment";
 import TrackingOrder from "./pages/TrackingOrder/TrackingOrder";
+import Modal from "./components/Modal/Modal";
 
 function ProtectedRoute(props) {
   const { token } = useGlobal();
@@ -32,7 +33,9 @@ export default function Routes(params) {
               <Route path="/pedidos" exact component={Orders} />
               <Route path="/pedido" exact component={OrderAssingnment} />
               <Route path="/rastreamento" exact component={TrackingOrder} />
+              <div className="container-top" />
             </ProtectedRoute>
+            <Modal />
           </GlobalProvider>
         </Switch>
       </Router>

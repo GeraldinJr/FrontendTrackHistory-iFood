@@ -23,7 +23,7 @@ export default function Orders() {
     async function fetchData() {
       //   const result = await get( `/${current}?por_pagina=${5}`, {}, true);
       const result = await get("/", {}, true);
-      setOrders(result.pedidos);
+      setOrders([...result.pedidos, ...result.pedidos]);
       setLastPage(result.lastPage);
       return result;
     }
@@ -45,16 +45,18 @@ export default function Orders() {
   return (
     <div className="orders">
       <h1>Pedidos</h1>
-      {orders[0] &&
-        orders.map((order) => (
-          <div
-            onClick={() => handlePage(order.pedido)}
-            className="order"
-            key={order.lanche}
-          >
-            <h2>{order.lanche}</h2>
-          </div>
-        ))}
+      <div className="orders-table">
+        {orders[0] &&
+          orders.map((order) => (
+            <div
+              onClick={() => handlePage(order.pedido)}
+              className="order"
+              key={order.lanche}
+            >
+              <h2>{order.lanche}</h2>
+            </div>
+          ))}
+      </div>
       <div
         className="div-btns-orders"
         style={{

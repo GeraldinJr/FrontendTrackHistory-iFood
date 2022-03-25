@@ -1,8 +1,32 @@
+.div-tracking {
+  height: 100vh;
+  padding: 10vh 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  align-items: center;
+}
+.div-tracking>div{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1vh;
+}
+.div-tracking img{
+  width: 80%;
+  height: 95%;
+  margin: 5vh 0;
+}
+
 .div-tracking .tracking-btns {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  margin-top: 20px;
+  flex-direction: row;
+  margin-top: 7vh;
 }
 .div-tracking .tracking-btns > * {
   width: 40%;
