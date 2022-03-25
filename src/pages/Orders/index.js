@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable operator-linebreak */
@@ -7,13 +8,13 @@ import { useHistory } from "react-router-dom";
 import Button from "../../components/Button";
 
 import useRequest from "../../hooks/useRequest";
-// import useGlobal from "../../hooks/useGlobal";
+import useGlobal from "../../hooks/useGlobal";
 
 export default function Orders() {
   const { get } = useRequest();
 
   const history = useHistory();
-  //   const { setSelectedOrder, selectedOrder } = useGlobal;
+  const { setSelectedOrder } = useGlobal();
 
   const [orders, setOrders] = useState([]);
   const [current, setCurrent] = useState(1);
@@ -22,23 +23,18 @@ export default function Orders() {
   useEffect(() => {
     async function fetchData() {
       //   const result = await get( `/${current}?por_pagina=${5}`, {}, true);
-      const result = await get("/", {}, true);
-      setOrders([...result.pedidos, ...result.pedidos]);
-      setLastPage(result.lastPage);
+      const result = await get("/pedidos", {}, true);
+      setOrders(result);
+      // setLastPage(result.lastPage);
       return result;
     }
     fetchData();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [current]);
 
-  async function handlePage(id) {
-    //   const result = await get(`/pedido/${}`, {}, true);
-    // const result = await get("/", {}, true);
-    // setSelectedOrder(result.pedido);
-    // console.log("order");
-    // if (result.ok) {
+  async function handlePage(param) {
+    setSelectedOrder(param);
     history.push("/pedido");
-    // }
   }
   return (
     <div className="orders">
@@ -47,11 +43,11 @@ export default function Orders() {
         {orders[0] &&
           orders.map((order) => (
             <div
-              onClick={() => handlePage(order.pedido)}
+              onClick={() => handlePage(order)}
               className="order"
-              key={order.pedido + Math.random()}
+              key={order.id}
             >
-              <h2>{order.lanche}</h2>
+              <h2>{order.cliente.nome}#{order.id}</h2>
             </div>
           ))}
       </div>
