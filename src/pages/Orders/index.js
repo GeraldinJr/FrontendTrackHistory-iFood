@@ -32,7 +32,6 @@ export default function Orders() {
   }, [current]);
 
   async function handlePage(id) {
-    console.log(`page ${id}`);
     //   const result = await get(`/pedido/${}`, {}, true);
     // const result = await get("/", {}, true);
     // setSelectedOrder(result.pedido);
