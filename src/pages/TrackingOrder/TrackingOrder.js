@@ -5,34 +5,43 @@ import { useEffect, useRef } from "react";
 import imgRastreamento from "../../assets/img-rastreamento.png";
 import Button from "../../components/Button";
 import useGlobal from "../../hooks/useGlobal";
+import useRequest from "../../hooks/useRequest";
 import "./style.css";
 
-const options = {
-  enableHighAccuracy: true,
-  timeout: 3000,
-  maximumAge: 0,
-};
-function success(pos) {
-  const crd = pos.coords;
-  console.log("Sua posição atual é:");
-  console.log(`Latitude : ${crd.latitude}`);
-  console.log(`Longitude: ${crd.longitude}`);
-  console.log(`Mais ou menos ${crd.accuracy} metros.`);
-}
-function error(err) {
-  console.warn(`ERROR(${err.code}): ${err.message}`);
-}
-
 export default function TrackingOrder() {
-  const { geoLocation, setOpenModal, setModalText, selectedOrder } =
-    useGlobal();
+  const {
+    geoLocation,
+    setOpenModal,
+    setModalText,
+    selectedOrder,
+    location,
+    options,
+    error,
+    success,
+  } = useGlobal();
+  const { post } = useRequest();
   const index = useRef(0);
+
+  useEffect(() => {
+    navigator.geolocation.getCurrentPosition(success, error, options);
+    post(
+      `/pedidos/${selectedOrder.id}/atribuir-pedido`,
+      location.current,
+      true
+    );
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   useEffect(() => {
     geoLocation.current = setInterval(() => {
       console.log(index.current);
       index.current++;
       navigator.geolocation.getCurrentPosition(success, error, options);
+      post(
+        `/pedidos/${selectedOrder.id}/geolocalizacao`,
+        location.current,
+        true
+      );
     }, 3000);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);

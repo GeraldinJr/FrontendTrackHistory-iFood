@@ -11,9 +11,29 @@ function useGlobalProvider() {
   const [modalText, setModalText] = useState("");
   const path = useLocation().pathname;
   const [nomeEntregador, setNomeEntregador] = useState("nome sobrenome");
+  const location = useRef();
 
   if (path !== "/rastreamento") {
     clearInterval(geoLocation.current);
+  }
+
+  const options = {
+    enableHighAccuracy: true,
+    timeout: 3000,
+    maximumAge: 0,
+  };
+
+  function error(err) {
+    console.warn(`ERROR(${err.code}): ${err.message}`);
+  }
+
+  function success(pos) {
+    const crd = pos.coords;
+    location.current = {
+      latitude: crd.latitude,
+      longitude: crd.longitude,
+    };
+    console.log(location.current);
   }
 
   return {
@@ -31,6 +51,10 @@ function useGlobalProvider() {
     setModalText,
     nomeEntregador,
     setNomeEntregador,
+    location,
+    options,
+    error,
+    success,
   };
 }
 

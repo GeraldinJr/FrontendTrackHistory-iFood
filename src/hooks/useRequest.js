@@ -78,12 +78,9 @@ export default function useRequest() {
       toast.messageError(error.message);
     }
   }
-
-  //   async function del() {}
   return {
     get,
     post,
     put,
-    // del,
   };
 }

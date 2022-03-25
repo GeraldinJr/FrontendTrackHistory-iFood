@@ -1,17 +1,31 @@
 import { useHistory } from "react-router-dom";
 import useGlobal from "../../hooks/useGlobal";
+import useRequest from "../../hooks/useRequest";
 import Button from "../Button";
 import "./style.css";
 
 export default function Modal() {
   // eslint-disable-next-line object-curly-newline
-  const { openModal, modalText, setOpenModal, geoLocation } = useGlobal();
+  const {
+    openModal,
+    modalText,
+    setOpenModal,
+    geoLocation,
+    selectedOrder,
+    location,
+  } = useGlobal();
+  const { post } = useRequest();
   const history = useHistory();
   function handleClick(params) {
-    if (params === "confirm") {
+    if (params === "confirm" && modalText === "CONFIRMAR") {
       setOpenModal(false);
       clearInterval(geoLocation.current);
+      post(`/pedidos/${selectedOrder.id}/concluir`, location.current, true);
       history.push("/pedidos");
+    } else if (params === "confirm" && modalText === "CANCELAR") {
+      setOpenModal(false);
+      clearInterval(geoLocation.current);
+      post(`/pedidos/${selectedOrder.id}/cancelar`, location.current, true);
     } else {
       setOpenModal(false);
     }
