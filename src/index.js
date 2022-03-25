@@ -5,6 +5,7 @@ import "react-toastify/dist/ReactToastify.css";
 import "./index.css";
 import Routes from "./routes";
 import "./helpers/pomodoroFonts/css/index.css";
+
 ReactDOM.render(
   <React.StrictMode>
     <Routes />
