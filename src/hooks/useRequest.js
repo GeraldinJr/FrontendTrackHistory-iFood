@@ -34,9 +34,11 @@ export default function useRequest() {
   async function post(route, body, withToken) {
     const config = withToken ? { Authorization: `Bearer ${token}` } : {};
     try {
+      const teste = `${decodeURI(process.env.REACT_APP_API_BE_URL)}${route}`;
+      console.log(teste);
       const response = await fetch(
-        // `${process.env.REACT_APP_API_BE_URL}${route}`,
-        `${url}${route}`,
+        teste,
+        // `${url}${route}`,
         {
           method: "POST",
           headers: {

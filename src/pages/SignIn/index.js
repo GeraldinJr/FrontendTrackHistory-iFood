@@ -19,7 +19,7 @@ import Button from "../../components/Button";
 
 export default function SignIn() {
   const history = useHistory();
-  const { setToken } = useGlobal();
+  const { setToken, setNomeEntregador, nomeEntregador } = useGlobal();
   const { post } = useRequest();
 
   const [values, setValues] = useState({
@@ -47,12 +47,13 @@ export default function SignIn() {
     if (!values.password || !email) {
       return toast.messageError("Preencha todos os campos");
     }
-    const body = { senha: values.password, email };
+    const body = { senha: values.password, email, setNomeEntregador };
 
     const result = await post("/", body, false);
 
     if (result) {
       setToken(result.token);
+      setNomeEntregador(result.entregador.nome);
       history.push("/pedidos");
     }
   }
