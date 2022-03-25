@@ -19,7 +19,7 @@ import Button from "../../components/Button";
 
 export default function SignIn() {
   const history = useHistory();
-  const { setToken, setNomeEntregador, nomeEntregador } = useGlobal();
+  const { setToken, setNomeEntregador } = useGlobal();
   const { post } = useRequest();
 
   const [values, setValues] = useState({
