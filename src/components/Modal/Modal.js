@@ -14,8 +14,10 @@ export default function Modal() {
     selectedOrder,
     location,
   } = useGlobal();
+
   const { post } = useRequest();
   const history = useHistory();
+
   function handleClick(params) {
     if (params === "confirm" && modalText === "CONFIRMAR") {
       setOpenModal(false);
@@ -30,6 +32,7 @@ export default function Modal() {
       setOpenModal(false);
     }
   }
+
   return (
     <div
       style={{ display: openModal ? "initial" : "none" }}
