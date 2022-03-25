@@ -63,6 +63,7 @@
   padding: 1% 0 2% 0;
   width: 394px;
   background-color: #fff;
+  display: none;
 }
 
 .orders .div-btns-orders > p {
