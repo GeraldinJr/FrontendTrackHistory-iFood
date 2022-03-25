@@ -1,15 +1,19 @@
-import { useEffect, useState } from "react";
+import { useRef, useState } from "react";
 import { useLocalStorage } from "react-use";
+import { useLocation } from "react-router-dom";
 
 function useGlobalProvider() {
   const [token, setToken, removeToken] = useLocalStorage("token", "");
   const [toastOn, setToastOn] = useState(false);
   const [selectedOrder, setSelectedOrder] = useState({});
-
-  useEffect(() => {
-    console.log(token);
-  }, [token]);
-
+  const geoLocation = useRef();
+  const [openModal, setOpenModal] = useState(false);
+  const [modalText, setModalText] = useState("");
+  const path = useLocation().pathname;
+  console.log(path);
+  if (path !== "/rastreamento") {
+    clearInterval(geoLocation.current);
+  }
   return {
     token,
     setToken,
@@ -17,7 +21,12 @@ function useGlobalProvider() {
     toastOn,
     setToastOn,
     setSelectedOrder,
-    selectedOrder
+    selectedOrder,
+    geoLocation,
+    openModal,
+    setOpenModal,
+    modalText,
+    setModalText,
   };
 }
 

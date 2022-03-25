@@ -1,0 +1,47 @@
+.container-home {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.container-home * {
+  margin: 1vh 0;
+}
+.container-home h3 {
+  margin: 4vh 0;
+  text-align: center;
+}
+.container-home img {
+  width: 70%;
+  height: 90%;
+  margin-bottom: 4vh;
+}
+.container-home .btn {
+  border: none;
+  cursor: pointer;
+}
+.container-home .btn-signin {
+  margin-top: 14vh;
+}
+.container-home .btn-signin * {
+  color: #fff;
+  font-weight: bold;
+}
+.container-home .btn-signin:hover {
+  background-color: #a02331;
+}
+
+.container-home .btn-signup {
+  background-color: #fff;
+  border: 2px solid #ea1d2c;
+}
+.container-home .btn-signup * {
+  color: #ea1d2c;
+  font-weight: bold;
+}
+.container-home .btn-signup:hover {
+  outline-color: #a02331;
+}
+.container-home .btn-signup:hover p {
+  color: #a02331;
+}

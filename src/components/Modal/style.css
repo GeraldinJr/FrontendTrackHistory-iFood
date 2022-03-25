@@ -1,0 +1,61 @@
+.container-modal {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 414px;
+  height: 100%;
+  top: 0;
+}
+.modal {
+  width: 414px;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.modal h2 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #fff;
+  margin-bottom: 4vh;
+  text-align: center;
+}
+.modal .btn {
+  cursor: pointer;
+  width: 50%;
+  border: none;
+  margin-top: 1vh;
+}
+
+.modal .btn p {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #fff;
+}
+
+.modal .btn-modal-confirm {
+  background-color: #2b9042;
+}
+
+.modal .btn-modal-confirm:hover {
+    background-color: #fff;
+    border: 2px solid #2b9042;
+  }
+  
+  .modal .btn-modal-confirm:hover p {
+    color: #2b9042;
+  }
+.modal .btn-modal-cancel:hover {
+  background-color: #fff;
+  border: 2px solid #ea1d2c;
+}
+
+.modal .btn-modal-cancel:hover p{
+    color: #ea1d2c;
+  }
+  

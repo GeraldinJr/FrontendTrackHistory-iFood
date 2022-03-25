@@ -1,6 +1,6 @@
 import "./styles.css";
 import { TextField } from "@mui/material";
-import { Link, useHistory } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 
 import IconButton from "@mui/material/IconButton";
 import OutlinedInput from "@mui/material/OutlinedInput";
@@ -10,16 +10,14 @@ import FormControl from "@mui/material/FormControl";
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import { useState } from "react";
-import useGlobal from "../../hooks/useGlobal";
 
 import useRequest from "../../hooks/useRequest";
 import toast from "../../helpers/toast";
 import imgLogin from "../../assets/login.png";
 import Button from "../../components/Button";
 
-export default function SignIn() {
+export default function SignUp() {
   const history = useHistory();
-  const { setToken } = useGlobal();
   const { post } = useRequest();
 
   const [values, setValues] = useState({
@@ -27,6 +25,7 @@ export default function SignIn() {
     showPassword: false,
   });
   const [email, setEmail] = useState("");
+  const [nome, setNome] = useState("");
 
   const handleChange = (prop) => (event) => {
     setValues({ ...values, [prop]: event.target.value });
@@ -47,23 +46,32 @@ export default function SignIn() {
     if (!values.password || !email) {
       return toast.messageError("Preencha todos os campos");
     }
-    const body = { senha: values.password, email };
+    const body = { senha: values.password, email, nome };
 
     const result = await post("/", body, false);
 
     if (result) {
-      setToken(result.token);
-      history.push("/pedidos");
+      history.push("/login");
     }
   }
 
   return (
     <main>
-      <div className="container-login">
+      <div className="container-signup">
         <h3 style={{ fontWeight: "normal" }}>
           <b>iFood</b> para <br /> Entregadores
         </h3>
+
         <img src={imgLogin} alt="imagem login" />
+
+        <TextField
+          size="small"
+          id="outlined-basic"
+          label="Nome"
+          variant="outlined"
+          sx={{ width: "62%" }}
+          onChange={(event) => setNome(event.target.value)}
+        />
         <TextField
           size="small"
           id="outlined-basic"
@@ -104,10 +112,11 @@ export default function SignIn() {
             label="Password"
           />
         </FormControl>
-        <Button text="Entrar" onClickProp={handleSubmit} />
+
+        <Button text="Cadastrar" onClickProp={handleSubmit} />
         <div className="btn-aux">
-          <p>Não tem cadastro?&nbsp;</p>{" "}
-          <Link to="/cadastrar">Clique aqui!</Link>
+          <p>Já tem cadastro?&nbsp;</p>
+          <Link to="/login">Clique aqui!</Link>
         </div>
       </div>
     </main>
