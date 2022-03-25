@@ -6,7 +6,6 @@ import Button from "../../components/Button";
 
 export default function Home() {
   const history = useHistory();
-
   async function handleSubmit(path) {
     if (path === "in") {
       history.push("/login");

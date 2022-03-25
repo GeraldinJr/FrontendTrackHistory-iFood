@@ -1,7 +1,6 @@
 import useGlobal from "./useGlobal";
 import toast from "../helpers/toast";
 
-const url = "https://testeapitrack.herokuapp.com";
 export default function useRequest() {
   const { token } = useGlobal();
 
@@ -9,8 +8,7 @@ export default function useRequest() {
     const config = withToken ? { Authorization: `Bearer ${token}` } : {};
     try {
       const response = await fetch(
-        // `${process.env.REACT_APP_API_BE_URL}${route}`,
-        `${url}${route}`,
+        `${process.env.REACT_APP_API_BE_URL}${route}`,
         {
           method: "GET",
           headers: {
@@ -34,11 +32,8 @@ export default function useRequest() {
   async function post(route, body, withToken) {
     const config = withToken ? { Authorization: `Bearer ${token}` } : {};
     try {
-      const teste = `${decodeURI(process.env.REACT_APP_API_BE_URL)}${route}`;
-      console.log(teste);
       const response = await fetch(
-        teste,
-        // `${url}${route}`,
+        `${decodeURI(process.env.REACT_APP_API_BE_URL)}${route}`,
         {
           method: "POST",
           headers: {
@@ -63,8 +58,7 @@ export default function useRequest() {
     const config = withToken ? { Authorization: `Bearer ${token}` } : {};
     try {
       const response = await fetch(
-        // `${process.env.REACT_APP_API_BE_URL}${route}`,
-        `${url}${route}`,
+        `${process.env.REACT_APP_API_BE_URL}${route}`,
         {
           method: "PUT",
           headers: {

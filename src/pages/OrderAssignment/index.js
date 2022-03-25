@@ -8,11 +8,9 @@ import imgEntregadores from "../../assets/img-entregadores.png";
 
 export default function OrderAssignment() {
   const history = useHistory();
-
   function handleClick() {
     history.push("/rastreamento");
   }
-
   return (
     <main>
       <div className="assignment">

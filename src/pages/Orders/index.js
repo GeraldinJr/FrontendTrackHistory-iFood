@@ -41,7 +41,6 @@ export default function Orders() {
     history.push("/pedido");
     // }
   }
-
   return (
     <div className="orders">
       <h1>Pedidos</h1>
@@ -51,7 +50,7 @@ export default function Orders() {
             <div
               onClick={() => handlePage(order.pedido)}
               className="order"
-              key={order.lanche}
+              key={order.pedido + Math.random()}
             >
               <h2>{order.lanche}</h2>
             </div>

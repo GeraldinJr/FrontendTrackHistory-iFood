@@ -17,7 +17,6 @@ function success(pos) {
   console.log(`Longitude: ${crd.longitude}`);
   console.log(`Mais ou menos ${crd.accuracy} metros.`);
 }
-
 function error(err) {
   console.warn(`ERROR(${err.code}): ${err.message}`);
 }

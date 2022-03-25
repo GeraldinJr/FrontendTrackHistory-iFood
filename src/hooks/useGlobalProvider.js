@@ -11,10 +11,11 @@ function useGlobalProvider() {
   const [modalText, setModalText] = useState("");
   const path = useLocation().pathname;
   const [nomeEntregador, setNomeEntregador] = useState("nome sobrenome");
-  console.log(path);
+
   if (path !== "/rastreamento") {
     clearInterval(geoLocation.current);
   }
+
   return {
     token,
     setToken,
@@ -29,7 +30,7 @@ function useGlobalProvider() {
     modalText,
     setModalText,
     nomeEntregador,
-    setNomeEntregador
+    setNomeEntregador,
   };
 }
 

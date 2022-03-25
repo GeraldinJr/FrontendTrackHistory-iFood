@@ -11,7 +11,6 @@ function messageError(message) {
     progress: undefined,
   });
 }
-
 function messageSuccess(message) {
   toast.success(message, {
     position: "top-right",
