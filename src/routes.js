@@ -5,7 +5,6 @@ import {
   Switch,
 } from "react-router-dom";
 import SignIn from "./pages/SignIn";
-// import App from "./App";
 import Orders from "./pages/Orders";
 import { GlobalProvider } from "./context/GlobalContext";
 import useGlobal from "./hooks/useGlobal";
