@@ -5,7 +5,6 @@ import useGlobal from "../../hooks/useGlobal";
 
 export default function Header(props) {
   const { removeToken, nomeEntregador } = useGlobal();
-  console.log(nomeEntregador);
   const history = useHistory();
   function handleSignOut() {
     removeToken();

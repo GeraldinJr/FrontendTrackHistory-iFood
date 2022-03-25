@@ -7,7 +7,6 @@ export default function Modal() {
   // eslint-disable-next-line object-curly-newline
   const { openModal, modalText, setOpenModal, geoLocation } = useGlobal();
   const history = useHistory();
-
   function handleClick(params) {
     if (params === "confirm") {
       setOpenModal(false);

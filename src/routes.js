@@ -22,7 +22,6 @@ function ProtectedRoute(props) {
     <Route render={() => (token ? props.children : <Redirect to="/" />)} />
   );
 }
-
 export default function Routes(params) {
   return (
     <div>
