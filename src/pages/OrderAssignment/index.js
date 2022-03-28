@@ -1,18 +1,32 @@
+/* eslint-disable object-curly-newline */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 import "./styles.css";
 
 import { useHistory } from "react-router-dom";
+import { useEffect } from "react";
 import Button from "../../components/Button";
 import imgEntregadores from "../../assets/img-entregadores.png";
 import useGlobal from "../../hooks/useGlobal";
+import toast from "../../helpers/toast";
 
 export default function OrderAssignment() {
   const history = useHistory();
-  const { selectedOrder } = useGlobal();
+  const { selectedOrder, options, error, success } = useGlobal();
   function handleClick() {
     history.push("/rastreamento");
   }
+
+  // useEffect(() => {
+  //   if (!selectedOrder.id) {
+  //     history.push("/pedidos");
+  //     toast.messageError("Selecione um pedido para rastrear");
+  //     return <div />;
+  //   }
+  //   // eslint-disable-next-line react-hooks/exhaustive-deps
+  // }, []);
+
+  navigator.geolocation.getCurrentPosition(success, error, options);
   return (
     <main>
       <div className="assignment">

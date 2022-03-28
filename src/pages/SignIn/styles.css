@@ -2,29 +2,32 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
+  padding-top: 2vh;
+  overflow-y: scroll;
+  width: 100%;
 }
 .container-login * {
-  margin: 1vh 0;
+  margin: .6vh 0;
 }
 .container-login h3 {
-  margin: 4vh 0;
+  margin: 0 0 4vh 0;
   text-align: center;
 }
 .container-login img {
-  width: 70%;
-  height: 90%;
+  width: 60%;
+  height: 45%;
   margin-bottom: 4vh;
 }
-.container-login .btn-aux{
+.container-login .btn-aux {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
 }
-.container-login .btn-aux a{
+.container-login .btn-aux a {
   text-decoration: none;
-  color: #A02331;
+  color: #EA1D2C;
   font-weight: bold;
 }
 .container-login .btn {
@@ -36,5 +39,5 @@
   font-weight: bold;
 }
 .container-login .btn:hover {
-  background-color: #A02331;
+  background-color: #a02331;
 }

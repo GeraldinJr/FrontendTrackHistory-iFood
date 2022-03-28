@@ -2,29 +2,33 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
+  overflow-y: scroll;
+  padding-top: 2vh;
+  overflow-y: scroll;
+  width: 100%;
 }
 .container-signup * {
-  margin: 1vh 0;
+  margin: .6vh 0;
 }
 .container-signup h3 {
-  margin: 4vh 0;
+  margin: 0 0 4vh 0;
   text-align: center;
 }
 .container-signup img {
-  width: 70%;
-  height: 90%;
+  width: 60%;
+  height: 45%;
   margin-bottom: 4vh;
 }
-.container-signup .btn-aux{
+.container-signup .btn-aux {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
 }
-.container-signup .btn-aux a{
+.container-signup .btn-aux a {
   text-decoration: none;
-  color: #A02331;
+  color: #EA1D2C;
   font-weight: bold;
 }
 .container-signup .btn {
@@ -36,5 +40,5 @@
   font-weight: bold;
 }
 .container-signup .btn:hover {
-  background-color: #A02331;
+  background-color: #a02331;
 }

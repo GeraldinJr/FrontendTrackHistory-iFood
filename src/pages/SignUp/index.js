@@ -78,105 +78,95 @@ export default function SignUp() {
     }
   }
   return (
-    <main>
-      <div className="container-signup">
-        <h3 style={{ fontWeight: "normal" }}>
-          <b>iFood</b> para <br /> Entregadores
-        </h3>
+    <div className="container-signup">
+      <h3 style={{ fontWeight: "normal" }}>
+        <b>iFood</b> para <br /> Entregadores
+      </h3>
 
-        <img src={imgLogin} alt="imagem login" />
+      <img src={imgLogin} alt="imagem login" />
 
-        <TextField
-          size="small"
-          id="outlined-basic"
-          label="Nome"
-          variant="outlined"
-          sx={{ width: "62%" }}
-          onChange={(event) => setNome(event.target.value)}
+      <TextField
+        size="small"
+        id="outlined-basic"
+        label="Nome"
+        variant="outlined"
+        sx={{ width: "95%" }}
+        onChange={(event) => setNome(event.target.value)}
+      />
+      <TextField
+        size="small"
+        id="outlined-basic-email"
+        label="Email"
+        variant="outlined"
+        sx={{ width: "95%" }}
+        onChange={(event) => setEmail(event.target.value)}
+      />
+      <FormControl size="small" sx={{ m: 0, width: "95%" }} variant="outlined">
+        <InputLabel size="small" htmlFor="outlined-adornment-password">
+          Senha
+        </InputLabel>
+        <OutlinedInput
+          onKeyDown={(e) => {
+            // eslint-disable-next-line no-unused-expressions
+            e.key === "Enter" ? handleSubmit() : null;
+          }}
+          id="outlined-adornment-password"
+          type={values.showPassword ? "text" : "password"}
+          value={values.password}
+          onChange={handleChange("password")}
+          endAdornment={
+            <InputAdornment position="end">
+              <IconButton
+                aria-label="toggle password visibility"
+                onClick={handleClickShowPassword}
+                onMouseDown={handleMouseDownPassword}
+                edge="end"
+              >
+                {values.showPassword ? <VisibilityOff /> : <Visibility />}
+              </IconButton>
+            </InputAdornment>
+          }
+          label="Password"
         />
-        <TextField
-          size="small"
-          id="outlined-basic"
-          label="Email"
-          variant="outlined"
-          sx={{ width: "62%" }}
-          onChange={(event) => setEmail(event.target.value)}
-        />
-        <FormControl
-          size="small"
-          sx={{ m: 0, width: "62%" }}
-          variant="outlined"
-        >
-          <InputLabel size="small" htmlFor="outlined-adornment-password">
-            Senha
-          </InputLabel>
-          <OutlinedInput
-            onKeyDown={(e) => {
-              // eslint-disable-next-line no-unused-expressions
-              e.key === "Enter" ? handleSubmit() : null;
-            }}
-            id="outlined-adornment-password"
-            type={values.showPassword ? "text" : "password"}
-            value={values.password}
-            onChange={handleChange("password")}
-            endAdornment={
-              <InputAdornment position="end">
-                <IconButton
-                  aria-label="toggle password visibility"
-                  onClick={handleClickShowPassword}
-                  onMouseDown={handleMouseDownPassword}
-                  edge="end"
-                >
-                  {values.showPassword ? <VisibilityOff /> : <Visibility />}
-                </IconButton>
-              </InputAdornment>
-            }
-            label="Password"
-          />
-        </FormControl>
+      </FormControl>
 
-        <FormControl
-          size="small"
-          sx={{ m: 0, width: "62%" }}
-          variant="outlined"
-        >
-          <InputLabel size="small" htmlFor="outlined-adornment-password">
-            Confirme a Senha
-          </InputLabel>
-          <OutlinedInput
-            onKeyDown={(e) => {
-              // eslint-disable-next-line no-unused-expressions
-              e.key === "Enter" ? handleSubmit() : null;
-            }}
-            id="outlined-adornment-password"
-            type={valuesConfirm.showPassword ? "text" : "password"}
-            value={valuesConfirm.password}
-            onChange={handleChangeConfirm("password")}
-            endAdornment={
-              <InputAdornment position="end">
-                <IconButton
-                  aria-label="toggle password visibility"
-                  onClick={handleClickShowConfirmPassword}
-                  onMouseDown={handleMouseDownPassword}
-                  edge="end"
-                >
-                  {valuesConfirm.showPassword ? (
-                    <VisibilityOff />
-                  ) : (
-                    <Visibility />
-                  )}
-                </IconButton>
-              </InputAdornment>
-            }
-            label="Password"
-          />
-        </FormControl>
-        <Button text="Cadastrar" onClickProp={handleSubmit} />
-        <div className="btn-aux">
-          <p>Já tem cadastro?&nbsp;</p>
-          <Link to="/login">Clique aqui!</Link>
-        </div>
+      <FormControl size="small" sx={{ m: 0, width: "95%" }} variant="outlined">
+        <InputLabel size="small" htmlFor="outlined-adornment-confirmPassword">
+          Confirme a Senha
+        </InputLabel>
+        <OutlinedInput
+          onKeyDown={(e) => {
+            // eslint-disable-next-line no-unused-expressions
+            e.key === "Enter" ? handleSubmit() : null;
+          }}
+          id="outlined-adornment-confirmPassword"
+          type={valuesConfirm.showPassword ? "text" : "password"}
+          value={valuesConfirm.password}
+          onChange={handleChangeConfirm("password")}
+          endAdornment={
+            <InputAdornment position="end">
+              <IconButton
+                aria-label="toggle password visibility"
+                onClick={handleClickShowConfirmPassword}
+                onMouseDown={handleMouseDownPassword}
+                edge="end"
+              >
+                {valuesConfirm.showPassword ? (
+                  <VisibilityOff />
+                ) : (
+                  <Visibility />
+                )}
+              </IconButton>
+            </InputAdornment>
+          }
+          label="Password"
+        />
+      </FormControl>
+      <Button text="Cadastrar" onClickProp={handleSubmit} />
+      <div className="btn-aux">
+        <p>Já tem cadastro?&nbsp;</p>
+        <Link to="/login">Clique aqui!</Link>
       </div>
-    </main>
+    </div>
   );
 }

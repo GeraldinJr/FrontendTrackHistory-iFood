@@ -1,3 +1,5 @@
+/* eslint-disable no-nested-ternary */
+/* eslint-disable react/jsx-no-useless-fragment */
 import {
   BrowserRouter as Router,
   Redirect,
@@ -14,33 +16,35 @@ import TrackingOrder from "./pages/TrackingOrder/TrackingOrder";
 import Modal from "./components/Modal/Modal";
 import Home from "./pages/Home";
 import SignUp from "./pages/SignUp";
+import Teste from "./pages/Teste/index.tsx";
 
-function ProtectedRoute(props) {
-  const { token } = useGlobal();
-  return (
-    <Route render={() => (token ? props.children : <Redirect to="/" />)} />
-  );
-}
 export default function Routes(params) {
   return (
-    <div>
-      <Router>
-        <Switch>
-          <GlobalProvider>
-            <Route exact path="/login" component={SignIn} />
-            <Route exact path="/cadastrar" component={SignUp} />
-            <Route exact path="/" component={Home} />
-            <ProtectedRoute>
-              <Header texto="lucas" />
-              <Route path="/pedidos" exact component={Orders} />
-              <Route path="/pedido" exact component={OrderAssingnment} />
-              <Route path="/rastreamento" exact component={TrackingOrder} />
-              <div className="container-top" />
-            </ProtectedRoute>
-            <Modal />
-          </GlobalProvider>
-        </Switch>
-      </Router>
-    </div>
+    <Router>
+      <Switch>
+        <GlobalProvider>
+          {/* <Route exact path="/login" component={SignIn} />
+          <Route exact path="/cadastrar" component={SignUp} />
+          <Route exact path="/" component={Home} /> */}
+          <Route path="/" exact component={Teste} />
+          <ProtectedRoute>
+            <Header />
+            <Route path="/pedidos" exact component={Orders} />
+            <Route path="/pedido" exact component={OrderAssingnment} />
+            <Route path="/rastreamento" exact component={TrackingOrder} />
+
+            <div className="container-top" />
+          </ProtectedRoute>
+          <Modal />
+        </GlobalProvider>
+      </Switch>
+    </Router>
+  );
+}
+
+function ProtectedRoute(props) {
+  const { token, selectedOrder } = useGlobal();
+  return (
+    <Route render={() => (token ? props.children : <Redirect to="/" />)} />
   );
 }

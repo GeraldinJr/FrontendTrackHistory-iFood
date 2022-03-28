@@ -28,6 +28,7 @@ export default function Modal() {
       setOpenModal(false);
       clearInterval(geoLocation.current);
       post(`/pedidos/${selectedOrder.id}/cancelar`, location.current, true);
+      history.push("/pedidos");
     } else {
       setOpenModal(false);
     }

@@ -15,25 +15,23 @@ export default function Home() {
   }
 
   return (
-    <main>
-      <div className="container-home">
-        <h3 style={{ fontWeight: "normal" }}>
-          <b>iFood</b> para <br /> Entregadores
-        </h3>
+    <div className="container-home">
+      <h3 style={{ fontWeight: "normal" }}>
+        <b>iFood</b> para <br /> Entregadores
+      </h3>
 
-        <img src={imgLogin} alt="imagem home" />
+      <img src={imgLogin} alt="imagem home" />
 
-        <Button
-          text="Login"
-          clsName="btn-signin"
-          onClickProp={() => handleSubmit("in")}
-        />
-        <Button
-          text="Cadastrar"
-          clsName="btn-signup"
-          onClickProp={() => handleSubmit("up")}
-        />
-      </div>
-    </main>
+      <Button
+        text="Entrar"
+        clsName="btn-signin"
+        onClickProp={() => handleSubmit("in")}
+      />
+      <Button
+        text="Cadastrar"
+        clsName="btn-signup"
+        onClickProp={() => handleSubmit("up")}
+      />
+    </div>
   );
 }
