@@ -49,8 +49,6 @@ export default function TrackingOrder() {
       });
       setGenericLocation(arrayLct);
     }
-    console.log(hasOrderTracking);
-    console.log(location.current);
     if (!hasOrderTracking.current) {
       getLocation();
     } else {

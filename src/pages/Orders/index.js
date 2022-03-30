@@ -28,18 +28,15 @@ export default function Orders() {
         {},
         true
       );
-      console.log(result);
       setOrders(result.pedidos);
       setLastPage(result.totalPaginas);
       return result;
     }
     async function getOrderInfo() {
       const result = await get("/pessoa-entregadora/possui-pedido", {}, true);
-      console.log(result);
       if (!result.possuiPedido) {
         setSelectedOrder({});
         fetchData();
-        console.log(hasOrderTracking);
       } else {
         setSelectedOrder(result.pedido);
         hasOrderTracking.current = true;
@@ -53,31 +50,26 @@ export default function Orders() {
     setSelectedOrder(param);
     history.push("/pedido");
   }
-  console.log(orders);
 
   async function handleChangePage(btn, crrnt) {
     if (btn === "next") {
       currentRef.current += 1;
       setCurrent(currentRef.current);
       const result = await get(
-        `/pedidos?numeroPagina=${crrnt}&tamanhoPagina=10`,
+        `/pedidos/em-aberto?numeroPagina=${crrnt}&tamanhoPagina=10`,
         {},
         true
       );
-      console.log(result);
       setOrders(result.pedidos);
-      console.log(current);
     } else if (btn === "previous") {
       currentRef.current -= 1;
       setCurrent(currentRef.current);
       const result = await get(
-        `/pedidos?numeroPagina=${crrnt}&tamanhoPagina=10`,
+        `/pedidos/em-aberto?numeroPagina=${crrnt}&tamanhoPagina=10`,
         {},
         true
       );
-      console.log(result);
       setOrders(result.pedidos);
-      console.log(current);
     }
   }
   return (

@@ -39,7 +39,6 @@ function useGlobalProvider() {
     } else if (path === "/login" || path === "/cadastrar") {
       removeToken();
     }
-    console.log(selectedOrder);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [path]);
 
@@ -63,7 +62,6 @@ function useGlobalProvider() {
       latitude: crd.latitude,
       longitude: crd.longitude,
     };
-    console.log(location.current);
   }
 
   const neighborhoods = [
@@ -132,7 +130,6 @@ function useGlobalProvider() {
       lng: -35.697295368435476,
     },
   ];
-  console.log(neighborhoods.length);
   const array = useRef([]);
   // eslint-disable-next-line prefer-const
   let current = 0;
