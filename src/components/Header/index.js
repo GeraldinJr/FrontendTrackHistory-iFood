@@ -6,11 +6,27 @@ import signOut from "../../assets/sign-out.svg";
 import useGlobal from "../../hooks/useGlobal";
 
 export default function Header(props) {
-  const { removeToken, nomeEntregador, token, removeOrder } = useGlobal();
+  const {
+    removeToken,
+    nomeEntregador,
+    token,
+    removeOrder,
+    setNomeEntregador,
+    setGenericLocation,
+    geoLocation,
+  } = useGlobal();
   const history = useHistory();
   function handleSignOut() {
     removeToken();
     removeOrder();
+    setNomeEntregador("nome ");
+    setGenericLocation([
+      {
+        lat: 0,
+        lng: 0,
+      },
+    ]);
+    clearInterval(geoLocation.current);
     history.push("/login");
   }
 

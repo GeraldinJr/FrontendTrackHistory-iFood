@@ -12,7 +12,7 @@ import { GlobalProvider } from "./context/GlobalContext";
 import useGlobal from "./hooks/useGlobal";
 import Header from "./components/Header";
 import OrderAssingnment from "./pages/OrderAssignment";
-import TrackingOrder from "./pages/TrackingOrder/TrackingOrder";
+import TrackingOrder from "./pages/TrackingOrder/index";
 import Modal from "./components/Modal/Modal";
 import Home from "./pages/Home";
 import SignUp from "./pages/SignUp";

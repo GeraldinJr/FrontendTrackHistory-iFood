@@ -36,7 +36,7 @@ export default function Orders() {
     async function getOrderInfo() {
       const result = await get("/pessoa-entregadora/possui-pedido", {}, true);
       console.log(result);
-      if (!result.possuiPedidio) {
+      if (!result.possuiPedido) {
         setSelectedOrder({});
         fetchData();
         console.log(hasOrderTracking);
@@ -116,7 +116,7 @@ export default function Orders() {
           <Button
             onClickProp={() => handleChangePage("next", current + 1)}
             clsName="next"
-            text="Proxima"
+            text="Próxima"
           />
         )}
       </div>

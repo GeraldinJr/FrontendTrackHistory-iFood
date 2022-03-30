@@ -72,12 +72,12 @@ export default function TrackingOrder() {
             true
           );
           lastLocation.current = location.current;
+          arrayLct.push({
+            lat: lastLocation.current.latitude,
+            lng: lastLocation.current.longitude,
+          });
+          setGenericLocation(arrayLct);
         }
-        arrayLct.push({
-          lat: lastLocation.current.latitude,
-          lng: lastLocation.current.longitude,
-        });
-        setGenericLocation(arrayLct);
       }
     }, 3000);
   }, []);

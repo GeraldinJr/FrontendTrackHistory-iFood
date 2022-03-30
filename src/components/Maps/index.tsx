@@ -33,7 +33,7 @@ import { createCustomEqual } from "fast-equals";
 import { isLatLngLiteral } from "@googlemaps/typescript-guards";
 import { useEffect } from "react";
 import useGlobal from "../../hooks/useGlobal";
-
+import marker from "./assets/markeMaps.png";
 // eslint-disable-next-line react/jsx-filename-extension
 const render = (status: Status) => <h1>{status}</h1>;
 

@@ -64,6 +64,9 @@ export default function SignUp() {
     if (values.password !== valuesConfirm.password) {
       return toast.messageError("As senhas não são iguais");
     }
+    if (values.password.length < 6) {
+      return toast.messageError("A senha deve ter no mínimo 6 caracteres");
+    }
     const body = {
       email,
       nome,

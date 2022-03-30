@@ -1,9 +1,10 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useRef, useState } from "react";
 import { useLocalStorage } from "react-use";
-import { useLocation } from "react-router-dom";
+import { useLocation, useHistory } from "react-router-dom";
 
 function useGlobalProvider() {
+  const history = useHistory();
   const [token, setToken, removeToken] = useLocalStorage("token", "");
   const [header, setHeader] = useState(true);
   const [selectedOrder, setSelectedOrder, removeOrder] = useLocalStorage(
@@ -31,6 +32,11 @@ function useGlobalProvider() {
   useEffect(() => {
     if (path === "/" || path === "/login" || path === "/cadastrar") {
       clearInterval(geoLocation.current);
+      if (token) {
+        history.push("/pedidos");
+      }
+      // eslint-disable-next-line no-dupe-else-if
+    } else if (path === "/login" || path === "/cadastrar") {
       removeToken();
     }
     console.log(selectedOrder);
