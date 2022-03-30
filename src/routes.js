@@ -30,7 +30,6 @@ export default function Routes(params) {
             <Route path="/pedidos" exact component={Orders} />
             <Route path="/pedido" exact component={OrderAssingnment} />
             <Route path="/rastreamento" exact component={TrackingOrder} />
-
             <div className="container-top" />
           </ProtectedRoute>
           <Modal />

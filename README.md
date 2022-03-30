@@ -1,69 +1,64 @@
-# Getting Started with Create React App
+# Track History iFood
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<p>
+Html | Css | JavaScript | TypeScript | React |  MUI Styled Components<br><br>
+Descrição
+</p>
 
-## Available Scripts
+Acesse no [site](https://www.trackhistoryifood.tk/)<br>
 
-In the project directory, you can run:
+## Pré-requisitos
 
-### `npm start`
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- [NodeJS](https://nodejs.org/en/download/)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+<br>
 
-### `npm test`
+```bash
+#Fazer o fork do repositório para sua conta
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+#Executar git clone do seu fork no terminal para clonar o repositório
+```
 
-### `npm run build`
+<br>
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Passos para montar o ambiente local
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+1. Instalar o Yarn
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```sh
+npm install -g Yarn
+```
 
-### `npm run eject`
+3. Instalar dependências:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```sh
+yarn install
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+ 4. 🔒 Environment
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Por padrão, após a instalação das dependências a aplicação vem com um módulo de configuração que pode ler todas as variáveis ​​de ambiente do arquivo `.env`.
+Utilizando de uma boa prática, as urls da api que retornar e recebe todas as informações para o funcionamento do front end, e a chave da api do Google Maps que libera a utilzação da ferramenta devem ser configuradas como variáveis de ambiente. Então, você deve configurar estas variáveis com os valores da url base do back end e a chave do Google Maps.
 
-## Learn More
+```bash
+# Crie um arquivo .env usando de exemplo o arquivo .env.example
+$ cp .env.example .env
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+| Key                       | Description                                                          | Default Value              |
+| ------------------------- | -------------------------------------------------------------------- | -------------------------- |
+| REACT_APP_BASE_URL        | URL BASE DA API DO BACKEND                                           | https://exemplodeurl.com   |
+| REACT_APP_GOOGLE_MAPS_API_KEY | CHAVE DA API DO GOOGLE MAPS | AaBbCcDdEXEMPLO123456789|
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+5. Start da aplicação:
 
-### Analyzing the Bundle Size
+```sh
+yarn start
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+6. Aplicação ficará disponível em **http://localhost:3000**
 
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+###### tags: `JavaScript` `Html`  `Css`  `React`  `TypeScript` `MUI Styled Components`

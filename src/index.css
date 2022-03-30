@@ -29,12 +29,6 @@ body {
   height: 100vh;
 }
 
-/*
-*
-*
-*
-*
-*/
 .container-top{
   display: flex;
   position: fixed;
@@ -43,7 +37,6 @@ body {
   z-index: 7;
   height: 5vh;
   width: 100%;
-  /* display: none; */
 }
 @media (max-width: 414.98px) {
   html {

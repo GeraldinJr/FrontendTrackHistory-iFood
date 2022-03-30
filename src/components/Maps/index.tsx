@@ -37,6 +37,7 @@ import useGlobal from "../../hooks/useGlobal";
 const render = (status: Status) => <h1>{status}</h1>;
 
 const Maps: React.VFC = () => {
+  const key: string = process.env.REACT_APP_GOOGLE_MAPS_API_KEY || "";
   const { array, genericLocation, location, lastLocation } = useGlobal();
   const [clicks, setClicks] = React.useState<any>([]);
   const [zoom, setZoom] = React.useState(15);
@@ -72,7 +73,7 @@ const Maps: React.VFC = () => {
         height: "40vh",
       }}
     >
-      <Wrapper apiKey="AIzaSyC9KdWn4g6LUUVBFRNzpZzveO9s30IhnRw" render={render}>
+      <Wrapper apiKey={key} render={render}>
         <Map
           center={center}
           // onClick={onClick}
