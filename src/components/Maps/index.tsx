@@ -33,14 +33,12 @@ import { createCustomEqual } from "fast-equals";
 import { isLatLngLiteral } from "@googlemaps/typescript-guards";
 import { useEffect } from "react";
 import useGlobal from "../../hooks/useGlobal";
-import marker from "./assets/markeMaps.png";
 // eslint-disable-next-line react/jsx-filename-extension
 const render = (status: Status) => <h1>{status}</h1>;
 
 const Maps: React.VFC = () => {
   const { array, genericLocation, location, lastLocation } = useGlobal();
   const [clicks, setClicks] = React.useState<any>([]);
-
   const [zoom, setZoom] = React.useState(15);
   const [center, setCenter] = React.useState<google.maps.LatLngLiteral>({
     lat: 0,
@@ -83,7 +81,11 @@ const Maps: React.VFC = () => {
           style={{ flexGrow: "1", height: "100%" }}
         >
           {clicks.map((latLng, i) => (
-            <Marker key={i} position={latLng} />
+            <Marker
+              icon="https://trello-attachments.s3.amazonaws.com/5f194a8116192d6f13039477/5f194de15f62c475bd9d3d4f/5ec38c6dc8ffb133f95f6d7d1db26cc5/pointer.png"
+              key={i}
+              position={latLng}
+            />
           ))}
         </Map>
       </Wrapper>
@@ -168,6 +170,7 @@ const Marker: React.FC<google.maps.MarkerOptions> = (options) => {
   React.useEffect(() => {
     if (marker) {
       marker.setOptions(options);
+      // marker.setIcon("mark");
     }
   }, [marker, options]);
 
