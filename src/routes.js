@@ -16,17 +16,15 @@ import TrackingOrder from "./pages/TrackingOrder/TrackingOrder";
 import Modal from "./components/Modal/Modal";
 import Home from "./pages/Home";
 import SignUp from "./pages/SignUp";
-import Teste from "./pages/Teste/index.tsx";
 
 export default function Routes(params) {
   return (
     <Router>
       <Switch>
         <GlobalProvider>
-          {/* <Route exact path="/login" component={SignIn} />
+          <Route exact path="/login" component={SignIn} />
           <Route exact path="/cadastrar" component={SignUp} />
-          <Route exact path="/" component={Home} /> */}
-          <Route path="/" exact component={Teste} />
+          <Route exact path="/" component={Home} />
           <ProtectedRoute>
             <Header />
             <Route path="/pedidos" exact component={Orders} />
@@ -43,7 +41,7 @@ export default function Routes(params) {
 }
 
 function ProtectedRoute(props) {
-  const { token, selectedOrder } = useGlobal();
+  const { token } = useGlobal();
   return (
     <Route render={() => (token ? props.children : <Redirect to="/" />)} />
   );

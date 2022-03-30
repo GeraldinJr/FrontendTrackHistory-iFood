@@ -6,19 +6,31 @@ import { useLocation } from "react-router-dom";
 function useGlobalProvider() {
   const [token, setToken, removeToken] = useLocalStorage("token", "");
   const [header, setHeader] = useState(true);
-  const [selectedOrder, setSelectedOrder] = useState({});
+  const [selectedOrder, setSelectedOrder, removeOrder] = useLocalStorage(
+    "order",
+    {}
+  );
+  const hasOrderTracking = useRef(false);
   const geoLocation = useRef();
   const [openModal, setOpenModal] = useState(false);
   const [modalText, setModalText] = useState("");
   const path = useLocation().pathname;
   // eslint-disable-next-line operator-linebreak
   const [nomeEntregador, setNomeEntregador, removeNomeEntregador] =
-    useLocalStorage("nomeEntregador", "");
-  const location = useRef();
+    useLocalStorage("nomeEntregador", "nomeEntregador");
+  // const [centerMap, setCenterMap, removeCenterMap] = useLocalStorage(
+  //   "centerMap",
+  //   {}
+  // );
+  const location = useRef({
+    latitude: 0,
+    longitude: 0,
+  });
   const lastLocation = useRef({
     latitude: 0,
     longitude: 0,
   });
+  const orderAssigned = useRef(false);
 
   useEffect(() => {
     if (path === "/" || path === "/login" || path === "/cadastrar") {
@@ -35,7 +47,7 @@ function useGlobalProvider() {
 
   const options = {
     enableHighAccuracy: true,
-    timeout: 3000,
+    timeout: 1000,
     maximumAge: 0,
   };
 
@@ -49,78 +61,104 @@ function useGlobalProvider() {
       latitude: crd.latitude,
       longitude: crd.longitude,
     };
+    console.log(location.current);
   }
-
-  useEffect(() => {
-    setNomeEntregador("nomeEntregador");
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-  //
 
   const neighborhoods = [
     {
-      lat: -9.515814585183048,
-      lng: -35.792598724365234,
+      lat: -9.62747033607328,
+      lng: -35.698957443237305,
     },
     {
-      lat: -9.515869424825283,
-      lng: -35.795103662921136,
+      lat: -9.626622502743155,
+      lng: -35.698231295432734,
     },
     {
-      lat: -9.514726652703258,
-      lng: -35.79849397511596,
+      lat: -9.625887347809005,
+      lng: -35.6975231922528,
     },
     {
-      lat: -9.513329926032835,
-      lng: -35.8025709328186,
+      lat: -9.626220547725588,
+      lng: -35.69711549648254,
     },
     {
-      lat: -9.513499226539231,
-      lng: -35.80523168416137,
+      lat: -9.62709321261623,
+      lng: -35.69775386222808,
     },
     {
-      lat: -9.51436689031862,
-      lng: -35.80528532834167,
+      lat: -9.62807694124428,
+      lng: -35.698231295432734,
     },
     {
-      lat: -9.516948706099027,
-      lng: -35.80391203732604,
+      lat: -9.628957534601902,
+      lng: -35.69864972003906,
     },
     {
-      lat: -9.518435357566775,
-      lng: -35.80319320531005,
+      lat: -9.62980877727435,
+      lng: -35.69915638847884,
     },
     {
-      lat: -9.520735200820653,
-      lng: -35.80207124521162,
+      lat: -9.630586714633859,
+      lng: -35.69962889027843,
     },
     {
-      lat: -9.523657390639746,
-      lng: -35.80069828029023,
+      lat: -9.63112617349442,
+      lng: -35.69996148419628,
     },
     {
-      lat: -9.525493183041897,
-      lng: -35.799786329225164,
+      lat: -9.631739674680496,
+      lng: -35.7002887136961,
+    },
+    {
+      lat: -9.63237961869529,
+      lng: -35.70064276528606,
+    },
+    {
+      lat: -9.632495972022209,
+      lng: -35.70000439954052,
+    },
+    {
+      lat: -9.632400773848634,
+      lng: -35.69895833802471,
+    },
+    {
+      lat: -9.63237961869529,
+      lng: -35.69774061513195,
+    },
+    {
+      lat: -9.632485394448693,
+      lng: -35.697295368435476,
     },
   ];
-
+  console.log(neighborhoods.length);
   const array = useRef([]);
+  // eslint-disable-next-line prefer-const
   let current = 0;
   let repeat;
-  const [genericLocation, setGenericLocation] = useState([
-    { lat: -9.515814585183048, lng: -35.792598724365234 },
-  ]);
-  useEffect(() => {
-    repeat = setInterval(() => {
-      array.current = [...array.current, neighborhoods[current]];
-      setGenericLocation(array.current);
-      if (array.current.length === neighborhoods.length) {
-        clearInterval(repeat);
-      }
-      current++;
-    }, 2000);
-  }, []);
-  console.log(genericLocation);
+  // const [genericLocation, setGenericLocation] = useState([]);
+  // eslint-disable-next-line operator-linebreak
+  const [genericLocation, setGenericLocation, removeGenericLocation] =
+    useLocalStorage("genericLocation", [
+      {
+        lat: 0,
+        lng: 0,
+      },
+    ]);
+  const [centerMap, setCenterMap] = useState({ lat: 0, lng: 0 });
+
+  // useEffect(() => {
+  //   repeat = setInterval(() => {
+  //     array.current = [...array.current, neighborhoods[current]];
+  //     setGenericLocation(array.current);
+  //     if (array.current.length === neighborhoods.length) {
+  //       clearInterval(repeat);
+  //     }
+  //     current++;
+  //   }, 2000);
+  // }, []);
+  // console.log(genericLocation);
+  //
+  //
   return {
     token,
     setToken,
@@ -143,7 +181,20 @@ function useGlobalProvider() {
     lastLocation,
     removeNomeEntregador,
     array,
+    current,
+    repeat,
+    neighborhoods,
     genericLocation,
+    setGenericLocation,
+    orderAssigned,
+    removeOrder,
+    // setCenterMap,
+    // centerMap,
+    // removeCenterMap,
+    centerMap,
+    setCenterMap,
+    removeGenericLocation,
+    hasOrderTracking,
   };
 }
 

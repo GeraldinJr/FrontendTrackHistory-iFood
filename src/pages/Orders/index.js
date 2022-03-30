@@ -3,7 +3,7 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable operator-linebreak */
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import "./style.css";
 import { useHistory } from "react-router-dom";
 import Button from "../../components/Button";
@@ -15,12 +15,12 @@ export default function Orders() {
   const { get } = useRequest();
 
   const history = useHistory();
-  const { setSelectedOrder } = useGlobal();
-  useEffect(() => {
-    setSelectedOrder({});
-  }, []);
+  const { setSelectedOrder, hasOrderTracking } = useGlobal();
+  // useEffect(() => {
+  // }, []);
 
   const [orders, setOrders] = useState([]);
+  const currentRef = useRef(1);
   const [current, setCurrent] = useState(1);
   const [lastPage, setLastPage] = useState();
 
@@ -31,16 +31,26 @@ export default function Orders() {
         {},
         true
       );
-      // const result = await get("/pedidos", {}, true);
       console.log(result);
-      // console.log(result[0].statusPedido === "EM_ABERTO");
-      // setOrders(result.filter((e) => e.statusPedido === "EM_ABERTO"));
       setOrders(result.pedidos);
       setLastPage(result.totalPaginas);
       return result;
     }
-    fetchData();
-  }, [current]);
+    async function getOrderInfo() {
+      const result = await get("/pessoa-entregadora/possui-pedido", {}, true);
+      console.log(result);
+      if (!result.possuiPedidio) {
+        setSelectedOrder({});
+        fetchData();
+        console.log(hasOrderTracking);
+      } else {
+        setSelectedOrder(result.pedido);
+        hasOrderTracking.current = true;
+        history.push("/rastreamento");
+      }
+    }
+    getOrderInfo();
+  }, []);
 
   async function handlePage(param) {
     setSelectedOrder(param);
@@ -50,9 +60,8 @@ export default function Orders() {
 
   async function handleChangePage(btn, crrnt) {
     if (btn === "next") {
-      // if (current < lastPage) {
-      setCurrent(crrnt + 1);
-      // }
+      currentRef.current += 1;
+      setCurrent(currentRef.current);
       const result = await get(
         `/pedidos?numeroPagina=${crrnt}&tamanhoPagina=10`,
         {},
@@ -60,10 +69,18 @@ export default function Orders() {
       );
       console.log(result);
       setOrders(result.pedidos);
+      console.log(current);
     } else if (btn === "previous") {
-      // if (current > 1) {
-      //   setCurrent(current - 1);
-      // }
+      currentRef.current -= 1;
+      setCurrent(currentRef.current);
+      const result = await get(
+        `/pedidos?numeroPagina=${crrnt}&tamanhoPagina=10`,
+        {},
+        true
+      );
+      console.log(result);
+      setOrders(result.pedidos);
+      console.log(current);
     }
   }
   return (
@@ -92,7 +109,7 @@ export default function Orders() {
       >
         {current > 1 && (
           <Button
-            onClickProp={(e) => setCurrent(current - 1)}
+            onClickProp={() => handleChangePage("previous", current - 1)}
             clsName="btn-prev"
             text="Anterior"
           />

@@ -1,3 +1,4 @@
+/* eslint-disable object-curly-newline */
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable operator-linebreak */
 /* eslint-disable function-paren-newline */
@@ -36,9 +37,9 @@ import useGlobal from "../../hooks/useGlobal";
 // eslint-disable-next-line react/jsx-filename-extension
 const render = (status: Status) => <h1>{status}</h1>;
 
-const App: React.VFC = () => {
+const Maps: React.VFC = () => {
   // const [clicks, setClicks] = React.useState<google.maps.LatLng[]>([]);
-  const { array, genericLocation } = useGlobal();
+  const { array, genericLocation, location, lastLocation } = useGlobal();
   const [clicks, setClicks] = React.useState<any>([]);
 
   const [zoom, setZoom] = React.useState(15); // initial zoom
@@ -48,7 +49,7 @@ const App: React.VFC = () => {
   });
 
   useEffect(() => {
-    setCenter({ lat: -9.5279173, lng: -35.8006612 });
+    setCenter({ lat: -9.0, lng: -35.0 });
     setZoom(15);
   }, []);
 
@@ -59,7 +60,6 @@ const App: React.VFC = () => {
   };
 
   const onIdle = (m: google.maps.Map) => {
-    console.log("onIdle");
     setZoom(m.getZoom()!);
     setCenter(m.getCenter()!.toJSON());
   };
@@ -68,13 +68,20 @@ const App: React.VFC = () => {
     setClicks(genericLocation);
     setCenter(genericLocation[genericLocation.length - 1]);
   }, [genericLocation]);
-  //
   return (
-    <div style={{ display: "flex", height: "100%" }}>
+    <div
+      className="container-maps"
+      style={{
+        display: "flex",
+        // position: "fixed",
+        width: "314px",
+        height: "40vh",
+      }}
+    >
       <Wrapper apiKey="AIzaSyC9KdWn4g6LUUVBFRNzpZzveO9s30IhnRw" render={render}>
         <Map
           center={center}
-          onClick={onClick}
+          // onClick={onClick}
           onIdle={onIdle}
           zoom={zoom}
           style={{ flexGrow: "1", height: "100%" }}
@@ -206,4 +213,4 @@ function useDeepCompareEffectForMaps(
   React.useEffect(callback, dependencies.map(useDeepCompareMemoize));
 }
 
-export default App;
+export default Maps;

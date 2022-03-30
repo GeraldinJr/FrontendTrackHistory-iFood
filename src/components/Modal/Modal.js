@@ -13,22 +13,44 @@ export default function Modal() {
     geoLocation,
     selectedOrder,
     location,
+    removeOrder,
+    hasOrderTracking,
   } = useGlobal();
 
-  const { post } = useRequest();
+  const { patch } = useRequest();
   const history = useHistory();
 
   function handleClick(params) {
     if (params === "confirm" && modalText === "CONFIRMAR") {
       setOpenModal(false);
       clearInterval(geoLocation.current);
-      post(`/pedidos/${selectedOrder.id}/concluir`, location.current, true);
-      history.push("/pedidos");
+      const result = patch(
+        `/pedidos/${selectedOrder.id}/concluir`,
+        location.current,
+        true
+      );
+      if (result) {
+        setTimeout(() => {
+          history.push("/pedidos");
+          removeOrder();
+          hasOrderTracking.current = false;
+        }, 1000);
+      }
     } else if (params === "confirm" && modalText === "CANCELAR") {
       setOpenModal(false);
       clearInterval(geoLocation.current);
-      post(`/pedidos/${selectedOrder.id}/cancelar`, location.current, true);
-      history.push("/pedidos");
+      const result = patch(
+        `/pedidos/${selectedOrder.id}/cancelar`,
+        location.current,
+        true
+      );
+      if (result) {
+        setTimeout(() => {
+          history.push("/pedidos");
+          removeOrder();
+          hasOrderTracking.current = false;
+        }, 1000);
+      }
     } else {
       setOpenModal(false);
     }

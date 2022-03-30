@@ -33,7 +33,7 @@ export default function useRequest() {
     const config = withToken ? { Authorization: `${token}` } : {};
     try {
       const response = await fetch(
-        `${decodeURI(process.env.REACT_APP_API_BE_URL)}${route}`,
+        `${process.env.REACT_APP_API_BE_URL}${route}`,
         {
           method: "POST",
           headers: {
@@ -44,10 +44,33 @@ export default function useRequest() {
         }
       );
       const dataObj = await response.json();
+
       if (!response.ok) {
         throw new Error(dataObj.message);
       }
       return dataObj;
+    } catch (error) {
+      console.log(error);
+      toast.messageError(error.message);
+    }
+  }
+
+  async function postPedido(route, body, withToken) {
+    const config = withToken ? { Authorization: `${token}` } : {};
+    try {
+      const response = await fetch(
+        `${process.env.REACT_APP_API_BE_URL}${route}`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            ...config,
+          },
+          body: JSON.stringify(body),
+        }
+      );
+
+      return response;
     } catch (error) {
       console.log(error);
       toast.messageError(error.message);
@@ -78,9 +101,33 @@ export default function useRequest() {
       toast.messageError(error.message);
     }
   }
+
+  async function patch(route, body, withToken) {
+    const config = withToken ? { Authorization: `${token}` } : {};
+    try {
+      const response = await fetch(
+        `${process.env.REACT_APP_API_BE_URL}${route}`,
+        {
+          method: "PATCH",
+          headers: {
+            "Content-Type": "application/json",
+            ...config,
+          },
+          body: JSON.stringify(body),
+        }
+      );
+      return response;
+    } catch (error) {
+      console.log(error);
+      toast.messageError(error.message);
+    }
+  }
+
   return {
     get,
     post,
     put,
+    patch,
+    postPedido,
   };
 }

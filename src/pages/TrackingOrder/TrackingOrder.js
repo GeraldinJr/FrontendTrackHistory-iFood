@@ -1,14 +1,15 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable object-curly-newline */
 /* eslint-disable operator-linebreak */
 /* eslint-disable indent */
 import { useHistory } from "react-router-dom";
-import { useEffect, useRef } from "react";
-import imgRastreamento from "../../assets/img-rastreamento.png";
+import { useEffect } from "react";
 import Button from "../../components/Button";
 import useGlobal from "../../hooks/useGlobal";
 import useRequest from "../../hooks/useRequest";
 import "./style.css";
 import toast from "../../helpers/toast";
+import Maps from "../../components/Maps/index.tsx";
 
 export default function TrackingOrder() {
   const {
@@ -21,36 +22,46 @@ export default function TrackingOrder() {
     error,
     success,
     lastLocation,
+    orderAssigned,
+    setGenericLocation,
+    hasOrderTracking,
   } = useGlobal();
-  const { post } = useRequest();
-  const index = useRef(0);
+  const { post, postPedido } = useRequest();
   const history = useHistory();
-  const assigned = useRef(true);
+
+  const arrayLct = [];
 
   useEffect(() => {
     async function getLocation() {
       navigator.geolocation.getCurrentPosition(success, error, options);
-      const tryAssigning = await post(
+      const tryAssigning = await postPedido(
         `/pedidos/${selectedOrder.id}/atribuir-pedido`,
         location.current,
         true
       );
       if (tryAssigning) {
-        assigned.current = true;
-        console.log("Pedido atribuído com sucesso!");
+        lastLocation.current = location.current;
+        orderAssigned.current = true;
       }
+      arrayLct.push({
+        lat: lastLocation.current.latitude,
+        lng: lastLocation.current.longitude,
+      });
+      setGenericLocation(arrayLct);
     }
-    getLocation();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    console.log(hasOrderTracking);
+    console.log(location.current);
+    if (!hasOrderTracking.current) {
+      getLocation();
+    } else {
+      orderAssigned.current = true;
+    }
   }, []);
 
   useEffect(() => {
-    if (assigned.current) {
-      geoLocation.current = setInterval(() => {
-        console.log(index.current);
-        index.current++;
+    geoLocation.current = setInterval(() => {
+      if (orderAssigned.current) {
         navigator.geolocation.getCurrentPosition(success, error, options);
-        //
         if (
           lastLocation.current.latitude !== location.current.latitude &&
           lastLocation.current.longitude !== location.current.longitude
@@ -62,9 +73,13 @@ export default function TrackingOrder() {
           );
           lastLocation.current = location.current;
         }
-      }, 3000);
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+        arrayLct.push({
+          lat: lastLocation.current.latitude,
+          lng: lastLocation.current.longitude,
+        });
+        setGenericLocation(arrayLct);
+      }
+    }, 3000);
   }, []);
 
   function handleClick(params) {
@@ -86,7 +101,7 @@ export default function TrackingOrder() {
     <div className="div-tracking">
       <div className="">
         <h2>Pedido {selectedOrder.id}</h2>
-        <img src={imgRastreamento} alt="imagem rastreamento" />
+        <Maps />
         <h3>Cliente: {selectedOrder.cliente.nome}</h3>
       </div>
       <div className="tracking-btns">
