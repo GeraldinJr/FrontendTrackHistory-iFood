@@ -38,11 +38,10 @@ import useGlobal from "../../hooks/useGlobal";
 const render = (status: Status) => <h1>{status}</h1>;
 
 const Maps: React.VFC = () => {
-  // const [clicks, setClicks] = React.useState<google.maps.LatLng[]>([]);
   const { array, genericLocation, location, lastLocation } = useGlobal();
   const [clicks, setClicks] = React.useState<any>([]);
 
-  const [zoom, setZoom] = React.useState(15); // initial zoom
+  const [zoom, setZoom] = React.useState(15);
   const [center, setCenter] = React.useState<google.maps.LatLngLiteral>({
     lat: 0,
     lng: 0,
@@ -54,9 +53,7 @@ const Maps: React.VFC = () => {
   }, []);
 
   const onClick = (e: google.maps.MapMouseEvent) => {
-    // avoid directly mutating state
     setClicks([...clicks, e.latLng!]);
-    // clicks.current.push(e.latLng!);
   };
 
   const onIdle = (m: google.maps.Map) => {
@@ -73,7 +70,6 @@ const Maps: React.VFC = () => {
       className="container-maps"
       style={{
         display: "flex",
-        // position: "fixed",
         width: "314px",
         height: "40vh",
       }}

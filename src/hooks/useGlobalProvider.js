@@ -18,10 +18,6 @@ function useGlobalProvider() {
   // eslint-disable-next-line operator-linebreak
   const [nomeEntregador, setNomeEntregador, removeNomeEntregador] =
     useLocalStorage("nomeEntregador", "nomeEntregador");
-  // const [centerMap, setCenterMap, removeCenterMap] = useLocalStorage(
-  //   "centerMap",
-  //   {}
-  // );
   const location = useRef({
     latitude: 0,
     longitude: 0,
@@ -135,7 +131,6 @@ function useGlobalProvider() {
   // eslint-disable-next-line prefer-const
   let current = 0;
   let repeat;
-  // const [genericLocation, setGenericLocation] = useState([]);
   // eslint-disable-next-line operator-linebreak
   const [genericLocation, setGenericLocation, removeGenericLocation] =
     useLocalStorage("genericLocation", [
@@ -146,19 +141,6 @@ function useGlobalProvider() {
     ]);
   const [centerMap, setCenterMap] = useState({ lat: 0, lng: 0 });
 
-  // useEffect(() => {
-  //   repeat = setInterval(() => {
-  //     array.current = [...array.current, neighborhoods[current]];
-  //     setGenericLocation(array.current);
-  //     if (array.current.length === neighborhoods.length) {
-  //       clearInterval(repeat);
-  //     }
-  //     current++;
-  //   }, 2000);
-  // }, []);
-  // console.log(genericLocation);
-  //
-  //
   return {
     token,
     setToken,
@@ -188,9 +170,6 @@ function useGlobalProvider() {
     setGenericLocation,
     orderAssigned,
     removeOrder,
-    // setCenterMap,
-    // centerMap,
-    // removeCenterMap,
     centerMap,
     setCenterMap,
     removeGenericLocation,
