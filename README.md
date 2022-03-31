@@ -109,7 +109,7 @@ Voce poderá nessa aplicação:
 <img height="400" width="200" src="./src/assets/login.gif">
 </div>
 <br>
-Nesta tela você poderá cadastrar e fazer login de uma pessoa entregadora registrando um nome de usuario, email e senha com no mínimo 6 caracteres.
+Nesta tela você poderá cadastrar e fazer login de uma pessoa entregadora registrando um nome de usuario, email e senha com no mínimo 6 caracteres. Caso um login já tenha sido feito anteriormente você será direcionado para a tela de pedidos em aberto.
 
 ### 📝 Listar os pedidos em aberto
 
