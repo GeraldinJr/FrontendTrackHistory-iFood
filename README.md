@@ -3,7 +3,7 @@
 <p align="center">
   <a href="#-sobre-o-projeto">Sobre o projeto</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#-tecnologias">Tecnologias</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#-pré-requisitos">Iniciando</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-pré-requisitos">Pré-requisitos</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#-funcionalidades">Funcionalidades</a>
 </p>
 
@@ -11,7 +11,7 @@
 
 <p>
     O Track History iFood é uma aplicação web que permite as pessoas entregadoras selecionarem pedidos feitos por clientes e realizar sua respectiva entrega.
-    O aplicativo é desenvolvido com o objetivo de facilitar o processo de entrega dessas refeições e trazer dados relevantes sobre esse processo.
+    O aplicativo é desenvolvido com o objetivo de facilitar o processo de entrega dessas refeições, trazer dados relevantes sobre esse processo e armazená-los.
 </p>
 
 Acesse no [trackhistoryifood.tk/](https://www.trackhistoryifood.tk/)<br>
