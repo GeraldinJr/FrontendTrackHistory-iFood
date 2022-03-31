@@ -15,7 +15,8 @@ export default function Orders() {
   const { get } = useRequest();
 
   const history = useHistory();
-  const { setSelectedOrder, hasOrderTracking } = useGlobal();
+  const { setSelectedOrder, hasOrderTracking, setTrackingStarted } =
+    useGlobal();
   const [orders, setOrders] = useState([]);
   const currentRef = useRef(1);
   const [current, setCurrent] = useState(1);
@@ -39,6 +40,7 @@ export default function Orders() {
         fetchData();
       } else {
         setSelectedOrder(result.pedido);
+        setTrackingStarted(true);
         hasOrderTracking.current = true;
         history.push("/rastreamento");
       }

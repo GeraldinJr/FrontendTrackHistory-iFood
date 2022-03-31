@@ -14,19 +14,22 @@ export default function Header(props) {
     setNomeEntregador,
     setGenericLocation,
     geoLocation,
+    trackingStarted,
   } = useGlobal();
   const history = useHistory();
   function handleSignOut() {
     removeToken();
     removeOrder();
     setNomeEntregador("nome ");
-    setGenericLocation([
-      {
-        lat: 0,
-        lng: 0,
-      },
-    ]);
     clearInterval(geoLocation.current);
+    if (!trackingStarted) {
+      setGenericLocation([
+        {
+          lat: 0,
+          lng: 0,
+        },
+      ]);
+    }
     history.push("/login");
   }
 

@@ -18,66 +18,90 @@ export default function TrackingOrder() {
     setModalText,
     selectedOrder,
     location,
-    options,
-    error,
-    success,
     lastLocation,
     orderAssigned,
     setGenericLocation,
     hasOrderTracking,
+    genericLocation,
+    setSelectedOrder,
   } = useGlobal();
-  const { post, postPedido } = useRequest();
+  const { post, postPedido, get } = useRequest();
   const history = useHistory();
 
-  const arrayLct = [];
+  let arrayLct = [];
 
   useEffect(() => {
-    async function getLocation() {
-      navigator.geolocation.getCurrentPosition(success, error, options);
-      const tryAssigning = await postPedido(
-        `/pedidos/${selectedOrder.id}/atribuir-pedido`,
-        location.current,
-        true
-      );
-      if (tryAssigning) {
-        lastLocation.current = location.current;
+    async function getOrderInfo() {
+      const result = await get("/pessoa-entregadora/possui-pedido", {}, true);
+      if (result.possuiPedido) {
+        setSelectedOrder(result.pedido);
+        hasOrderTracking.current = true;
+      }
+    }
+    getOrderInfo();
+  }, []);
+
+  function getLocationMaps() {
+    navigator.geolocation.getCurrentPosition(setPosition);
+  }
+  function setPosition(position) {
+    location.current = {
+      latitude: position.coords.latitude,
+      longitude: position.coords.longitude,
+    };
+  }
+  getLocationMaps();
+
+  useEffect(() => {
+    getLocationMaps();
+    setTimeout(() => {
+      async function getLocation() {
+        const tryAssigning = await postPedido(
+          `/pedidos/${selectedOrder.id}/atribuir-pedido`,
+          location.current,
+          true
+        );
+        if (tryAssigning) {
+          lastLocation.current = location.current;
+          orderAssigned.current = true;
+        }
+        arrayLct.push({
+          lat: lastLocation.current.latitude,
+          lng: lastLocation.current.longitude,
+        });
+        setGenericLocation(arrayLct);
+      }
+      if (!hasOrderTracking.current) {
+        getLocation();
+      } else {
+        arrayLct = genericLocation;
+        setGenericLocation(arrayLct);
         orderAssigned.current = true;
       }
-      arrayLct.push({
-        lat: lastLocation.current.latitude,
-        lng: lastLocation.current.longitude,
-      });
-      setGenericLocation(arrayLct);
-    }
-    if (!hasOrderTracking.current) {
-      getLocation();
-    } else {
-      orderAssigned.current = true;
-    }
+    }, 1000);
   }, []);
 
   useEffect(() => {
-    geoLocation.current = setInterval(() => {
-      if (orderAssigned.current) {
-        navigator.geolocation.getCurrentPosition(success, error, options);
-        if (
-          lastLocation.current.latitude !== location.current.latitude &&
-          lastLocation.current.longitude !== location.current.longitude
-        ) {
-          post(
-            `/pedidos/${selectedOrder.id}/geolocalizacao`,
-            lastLocation.current,
-            true
-          );
-          lastLocation.current = location.current;
-          arrayLct.push({
-            lat: lastLocation.current.latitude,
-            lng: lastLocation.current.longitude,
-          });
-          setGenericLocation(arrayLct);
-        }
+    const interval = setInterval(() => {
+      getLocationMaps();
+      if (
+        lastLocation.current.latitude !== location.current.latitude &&
+        lastLocation.current.longitude !== location.current.longitude
+      ) {
+        post(
+          `/pedidos/${selectedOrder.id}/geolocalizacao`,
+          lastLocation.current,
+          true
+        );
+        lastLocation.current = location.current;
+        arrayLct.push({
+          lat: lastLocation.current.latitude,
+          lng: lastLocation.current.longitude,
+        });
+        setGenericLocation(arrayLct);
       }
     }, 3000);
+    geoLocation.current = interval;
   }, []);
 
   function handleClick(params) {
@@ -95,6 +119,10 @@ export default function TrackingOrder() {
     return <div />;
   }
 
+  console.log(geoLocation.current);
+  setInterval(() => {
+    console.log(geoLocation.current);
+  }, 1000);
   return (
     <div className="div-tracking">
       <div className="">

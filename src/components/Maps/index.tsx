@@ -39,18 +39,11 @@ const render = (status: Status) => <h1>{status}</h1>;
 const Maps: React.VFC = () => {
   const key: string = process.env.REACT_APP_GOOGLE_MAPS_API_KEY || "";
   const { array, genericLocation, location, lastLocation } = useGlobal();
-  const [clicks, setClicks] = React.useState<any>([]);
+  const [clicks, setClicks] = React.useState<any>(genericLocation);
   const [zoom, setZoom] = React.useState(15);
-  const [center, setCenter] = React.useState<google.maps.LatLngLiteral>({
-    lat: 0,
-    lng: 0,
-  });
-
-  useEffect(() => {
-    setCenter({ lat: -9.0, lng: -35.0 });
-    setZoom(15);
-  }, []);
-
+  const [center, setCenter] = React.useState<google.maps.LatLngLiteral>(
+    genericLocation[genericLocation.length - 1]
+  );
   const onClick = (e: google.maps.MapMouseEvent) => {
     setClicks([...clicks, e.latLng!]);
   };
@@ -83,7 +76,7 @@ const Maps: React.VFC = () => {
         >
           {clicks.map((latLng, i) => (
             <Marker
-              icon="https://lh3.googleusercontent.com/cV-6JiiXtw906J_oLqpZ9M7nHPDGgo6lQp_zsLuCN_y3ukuD7Bmeir-MNxGskI66GsH0NZyL2j4lvD797bhcOJuqWmaKnQSSJ4Fcsuoh465RnPe2kiRt45TSjkG2pF51DO7xvE2wMT7PJttuNvDBZiBWrq9eITGK_7aM9csmUOkVyWsRkdgCD2gEA1ClxyX4rhYvvsUrA6GwtdsPE5eO-xOrhN2mTjZtY6Vk3TNF070j8__nkbk4WnPgMKfy8fzFAXmFjb9IziITXipAubcx51R0JmPQTxznP9siBc5VsMoYwOabjCM_bbVT3J1fQ74mnsPUi-S02DQLzhyIGBv3E-a03WEpyisuq-a8qFgggl-D1NeHqG4FyPPZQ35EUk1MwQB8PDPtbzEvEsCfjqsOEbIRGleIDuBFKiA3w0kHmYikVZch245s8RyJoP9pKLcBfgCOK7Y8zlAr2vtj0_hqj0LHLSopZLMuYaGIzQnU5jQAzYLkQ-E824HD6684Ff3XzkU2kf6ugHYyiCGmPpK5SlFyzZ27P9apfiX79moHP5l82erS6Tvpf3XcdSkK8w4dj2_8HQZ8_Wb0_UrfykeTEasLhCtvLgTTpYjIpL0zBQBlq27H3JgFA-Yi1tUa0BQe0C95atPn_RkwMWnjFlNWNhBp7dOnVBNWWvJN3JVCsFuayshCd9fI_cnL8k4a9jWVtyv8L-nBoKpDeX78_rW_Ockk7gFGrMA3dOZO4fp2vNeQNvsxGHJ_KiWHKLzSd0uw-zNWvtP9iOEjZAemL97qvm5_jxzXDy0=s20-no?authuser=0"
+              icon="https://raw.githubusercontent.com/lucasfpds/site_profiles/main/iconMarker.png"
               key={i}
               position={latLng}
             />

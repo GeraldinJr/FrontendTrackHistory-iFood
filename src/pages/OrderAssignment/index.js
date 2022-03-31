@@ -11,14 +11,36 @@ import toast from "../../helpers/toast";
 
 export default function OrderAssignment() {
   const history = useHistory();
-  // eslint-disable-next-line operator-linebreak
-  const { selectedOrder, options, error, success } = useGlobal();
+  const {
+    selectedOrder,
+    setGenericLocation,
+    location,
+    genericLocation,
+    setTrackingStarted,
+  } = useGlobal();
   function handleClick() {
+    setTrackingStarted(true);
     history.push("/rastreamento");
   }
 
-  navigator.geolocation.getCurrentPosition(success, error, options);
-
+  function getLocation() {
+    navigator.geolocation.getCurrentPosition(setPosition);
+  }
+  function setPosition(position) {
+    location.current = {
+      latitude: position.coords.latitude,
+      longitude: position.coords.longitude,
+    };
+    setGenericLocation([
+      {
+        lat: position.coords.latitude,
+        lng: position.coords.longitude,
+      },
+    ]);
+  }
+  if (genericLocation[0].lat === 0 && genericLocation[0].lng === 0) {
+    getLocation();
+  }
   if (!selectedOrder.id) {
     history.push("/pedidos");
     toast.messageError("Selecione um pedido para rastrear");

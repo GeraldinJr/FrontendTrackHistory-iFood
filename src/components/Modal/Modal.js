@@ -5,7 +5,6 @@ import Button from "../Button";
 import "./style.css";
 
 export default function Modal() {
-  // eslint-disable-next-line object-curly-newline
   const {
     openModal,
     modalText,
@@ -15,6 +14,8 @@ export default function Modal() {
     location,
     removeOrder,
     hasOrderTracking,
+    setTrackingStarted,
+    setGenericLocation,
   } = useGlobal();
 
   const { patch } = useRequest();
@@ -34,6 +35,13 @@ export default function Modal() {
           history.push("/pedidos");
           removeOrder();
           hasOrderTracking.current = false;
+          setTrackingStarted(false);
+          setGenericLocation([
+            {
+              lat: 0,
+              lng: 0,
+            },
+          ]);
         }, 1000);
       }
     } else if (params === "confirm" && modalText === "CANCELAR") {
@@ -49,6 +57,13 @@ export default function Modal() {
           history.push("/pedidos");
           removeOrder();
           hasOrderTracking.current = false;
+          setTrackingStarted(false);
+          setGenericLocation([
+            {
+              lat: 0,
+              lng: 0,
+            },
+          ]);
         }, 1000);
       }
     } else {
