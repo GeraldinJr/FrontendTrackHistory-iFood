@@ -103,6 +103,6 @@ Voce poderá nessa aplicação:
 - Deslogar da aplicação.
 
 ### 📝 Cadastro e Login
-<img height="300" width="200" src="./src/assets/cadastro.gif">
+<img height="400" width="200" src="./src/assets/cadastro.gif">
 
 ###### tags: `Html` `Css` `React JS`  `JavaScript`  `TypeScript` `MUI Styled Components` `React Router DOM` `MUI Styled Components` `Eslint` `Prettier`
