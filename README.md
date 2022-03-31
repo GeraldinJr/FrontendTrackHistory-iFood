@@ -70,7 +70,8 @@ yarn install
 4.  🔒 Environment
 
 Por padrão, após a instalação das dependências a aplicação vem com um módulo de configuração que pode ler todas as variáveis ​​de ambiente do arquivo `.env`.
-Utilizando de uma boa prática, as urls da api que retornar e recebe todas as informações para o funcionamento do front end, e a chave da api do Google Maps que libera a utilzação da ferramenta devem ser configuradas como variáveis de ambiente. Então, você deve configurar estas variáveis com os valores da url base do back end e a chave do Google Maps.
+Utilizando de uma boa prática, as urls da api que retornar e recebe todas as informações para o funcionamento do front end, e a chave da api do Google Maps que libera a utilzação da ferramenta devem ser configuradas como variáveis de ambiente. Então, você deve configurar estas variáveis com os valores da url base do back end e a chave do Google Maps. Para isso, basta criar um arquivo `.env` com as variáveis de ambiente.
+Para mais informações sobre variáveis de ambiente no ReactJS, acesse [ReactJS Environment Variables](https://backefront.com.br/como-criar-variavel-ambiente-react/).
 
 ```bash
 # Crie um arquivo .env usando de exemplo o arquivo .env.example
@@ -126,5 +127,9 @@ Nesta tela você terá um detalhamento do pedido e poderá iniciar a entrega.
 <img height="400" width="200" src="./src/assets/trajeto.gif"><br>
 Nesta Tela você poderá ver o registro do trajeto percorrido em tempo real além de concluir ou cancelar o pedido.
 Em caso de fazer o logout, ou sair da aplicação por qualquer motivo com um pedido em rota, a aplicação permanecerá nessa tela até conclusão ou cancelamento do pedido. Ao entrar novamente você será redirecionado diretamente para esta tela de rastreamento.
+
+### 📝 Deslogar da aplicação
+
+No menu superior você poderá deslogar da aplicação. Ao sair todas as informações do usuário que foram armazenadas localmente serão apagadas.
 
 ###### tags: `Html` `Css` `React JS` `JavaScript` `TypeScript` `MUI Styled Components` `React Router DOM` `MUI Styled Components` `Eslint` `Prettier`
