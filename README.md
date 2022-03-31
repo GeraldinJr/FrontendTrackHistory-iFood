@@ -106,7 +106,7 @@ Voce poderá nessa aplicação:
 
 <div>
 <img height="400" width="200" src="./src/assets/cadastro.gif">
-<img height="400" width="200" src="./src/assets/cadastro.gif">
+<img height="400" width="200" src="./src/assets/login.gif">
 </div>
 <br>
 Nesta tela você poderá cadastrar e fazer login de uma pessoa entregadora registrando um nome de usuario, email e senha com no mínimo 6 caracteres.
