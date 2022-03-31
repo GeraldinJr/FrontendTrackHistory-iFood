@@ -12,7 +12,7 @@
 </p>
 
 Acesse no [trackhistoryifood.tk/](https://www.trackhistoryifood.tk/)<br>
-Para o repositorio do back end acesse: [Github](https://github.com/GeraldinJr/BackendTrackHistory-iFood/tree/hml)<br>
+Para o repositorio do back end acesse: [BackendTrackHistory-iFood](https://github.com/GeraldinJr/BackendTrackHistory-iFood)<br>
 
 ### 💻 Desenvolvedores
 
