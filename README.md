@@ -10,7 +10,7 @@
 ## - Sobre o projeto
 
 <p>
-    O Track History iFood é um aplicativo web que permite as pessoas entregadoras selecionarem pedidos feitos por clientes e realizar sua respectiva entrega.
+    O Track History iFood é uma aplicação web que permite as pessoas entregadoras selecionarem pedidos feitos por clientes e realizar sua respectiva entrega.
     O aplicativo é desenvolvido com o objetivo de facilitar o processo de entrega dessas refeições e trazer dados relevantes sobre esse processo.
 </p>
 
@@ -96,13 +96,27 @@ yarn start
 Voce poderá nessa aplicação:
 - Cadastrar e fazer login de uma pessoa entregadora.
 - Listar os pedidos em aberto.
-- Selecionar um pedido para entrega.
+    - Selecionar um pedido para entrega.
 - Iniciar a entrega do pedido.
 - Ver o registro do trajeto percorrido em tempo real.
-- Concluir ou Cancelar o pedido
+    - Concluir ou Cancelar o pedido
 - Deslogar da aplicação.
 
 ### 📝 Cadastro e Login
-<img height="400" width="200" src="./src/assets/cadastro.gif">
+<img height="400" width="200" src="./src/assets/cadastro.gif"><br>
+Nesta tela você poderá cadastrar e fazer login de uma pessoa entregadora registrando um nome de usuario, email e senha com no mínimo 6 caracteres.
+
+### 📝 Listar os pedidos em aberto
+<img height="400" width="200" src="./src/assets/listarPedidos.gif"><br>
+Nesta tela você poderá listar os pedidos em aberto e escolher um para realizar a entrega.
+
+### 📝 Iniciar a entrega do pedido
+<img height="400" width="200" src="./src/assets/iniciarEntrega.gif"><br>
+Nesta tela você terá um detalhamento do pedido e poderá iniciar a entrega.
+
+### 📝 Ver o registro do trajeto percorrido em tempo real
+<img height="400" width="200" src="./src/assets/trajeto.gif"><br>
+Nesta Tela você poderá ver o registro do trajeto percorrido em tempo real além de concluir ou cancelar o pedido.
+Em caso de fazer o logout, ou sair da aplicação por qualquer motivo com um pedido em rota, a aplicação permanecerá nessa tela até conclusão ou cancelamento do pedido. Ao entrar novamente você será redirecionado diretamente para esta tela de rastreamento.
 
 ###### tags: `Html` `Css` `React JS`  `JavaScript`  `TypeScript` `MUI Styled Components` `React Router DOM` `MUI Styled Components` `Eslint` `Prettier`
