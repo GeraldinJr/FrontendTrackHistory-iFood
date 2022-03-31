@@ -131,6 +131,7 @@ Em caso de fazer o logout, ou sair da aplicação por qualquer motivo com um ped
 
 ### 📝 Deslogar da aplicação
 
+<img height="400" width="200" src="./src/assets/logout.gif"><br>
 No menu superior você poderá deslogar da aplicação. Ao sair todas as informações do usuário que foram armazenadas localmente serão apagadas.
 
 ###### tags: `Html` `Css` `React JS` `JavaScript` `TypeScript` `MUI Styled Components` `React Router DOM` `MUI Styled Components` `Eslint` `Prettier`
