@@ -1,11 +1,8 @@
 # Track History iFood
 
-<p align="center">
-  <a href="#-sobre-o-projeto">Sobre o projeto</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#-tecnologias">Tecnologias</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#-pré-requisitos">Pré-requisitos</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#-funcionalidades">Funcionalidades</a>
-</p>
+<div align="center">
+<img height="400" width="200" src="./src/assets/start.gif"><br>
+</div>
 
 ## - Sobre o projeto
 
