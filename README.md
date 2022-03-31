@@ -11,7 +11,7 @@
 
 <p>
     O Track History iFood é um aplicativo web que permite as pessoas entregadoras selecionarem pedidos feitos por clientes e realizar sua respectiva entrega.
-    O aplicativo é desenvolvido com o objetivo de facilitar o gerenciamento de refeições.
+    O aplicativo é desenvolvido com o objetivo de facilitar o processo de entrega dessas refeições e trazer dados relevantes sobre esse processo.
 </p>
 
 Acesse no [site](https://www.trackhistoryifood.tk/)<br>
