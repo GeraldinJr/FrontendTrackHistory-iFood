@@ -37,7 +37,6 @@ Para o repositorio do back end acesse: [Github](https://github.com/GeraldinJr/Ba
 - [Eslint](https://eslint.org/)
 - [Prettier](https://prettier.io/)
 
-
 ## Pré-requisitos
 
 - [NodeJS](https://nodejs.org/en/download/)
@@ -94,29 +93,38 @@ yarn start
 ## - Funcionalidades
 
 Voce poderá nessa aplicação:
+
 - Cadastrar e fazer login de uma pessoa entregadora.
 - Listar os pedidos em aberto.
-    - Selecionar um pedido para entrega.
+  - Selecionar um pedido para entrega.
 - Iniciar a entrega do pedido.
 - Ver o registro do trajeto percorrido em tempo real.
-    - Concluir ou Cancelar o pedido
+  - Concluir ou Cancelar o pedido
 - Deslogar da aplicação.
 
 ### 📝 Cadastro e Login
-<img height="400" width="200" src="./src/assets/cadastro.gif"><br>
+
+<div>
+<img height="400" width="200" src="./src/assets/cadastro.gif">
+<img height="400" width="200" src="./src/assets/cadastro.gif">
+</div>
+<br>
 Nesta tela você poderá cadastrar e fazer login de uma pessoa entregadora registrando um nome de usuario, email e senha com no mínimo 6 caracteres.
 
 ### 📝 Listar os pedidos em aberto
+
 <img height="400" width="200" src="./src/assets/listarPedidos.gif"><br>
 Nesta tela você poderá listar os pedidos em aberto e escolher um para realizar a entrega.
 
 ### 📝 Iniciar a entrega do pedido
+
 <img height="400" width="200" src="./src/assets/iniciarEntrega.gif"><br>
 Nesta tela você terá um detalhamento do pedido e poderá iniciar a entrega.
 
 ### 📝 Ver o registro do trajeto percorrido em tempo real
+
 <img height="400" width="200" src="./src/assets/trajeto.gif"><br>
 Nesta Tela você poderá ver o registro do trajeto percorrido em tempo real além de concluir ou cancelar o pedido.
 Em caso de fazer o logout, ou sair da aplicação por qualquer motivo com um pedido em rota, a aplicação permanecerá nessa tela até conclusão ou cancelamento do pedido. Ao entrar novamente você será redirecionado diretamente para esta tela de rastreamento.
 
-###### tags: `Html` `Css` `React JS`  `JavaScript`  `TypeScript` `MUI Styled Components` `React Router DOM` `MUI Styled Components` `Eslint` `Prettier`
+###### tags: `Html` `Css` `React JS` `JavaScript` `TypeScript` `MUI Styled Components` `React Router DOM` `MUI Styled Components` `Eslint` `Prettier`
