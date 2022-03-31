@@ -11,7 +11,7 @@
 
 <p>
     O Track History iFood é uma aplicação web que permite as pessoas entregadoras selecionarem pedidos feitos por clientes e realizar sua respectiva entrega.
-    O aplicativo é desenvolvido com o objetivo de facilitar o processo de entrega dessas refeições, trazer dados relevantes sobre esse processo e armazená-los.
+    O aplicativo é desenvolvido com os objetivos de facilitar o processo de entrega dessas refeições, trazer dados relevantes sobre esse processo e armazená-los.
 </p>
 
 Acesse no [trackhistoryifood.tk/](https://www.trackhistoryifood.tk/)<br>
@@ -20,8 +20,8 @@ Para o repositorio do back end acesse: [Github](https://github.com/GeraldinJr/Ba
 ### 💻 Desenvolvedores
 
 - [Debora Brum](https://github.com/DeboraBrum)
-- [Edvan Junior](https://github.com/Edvan-Jr)
-- [Geraldo Junior](https://github.com/GeraldinJr)
+- [Edvan Júnior](https://github.com/Edvan-Jr)
+- [Geraldo Júnior](https://github.com/GeraldinJr)
 - [Lucas Fernandes](https://github.com/lucasfpds)
 - [Magnólia Medeiros](https://github.com/magnoliamedeiros)
 
@@ -70,8 +70,7 @@ yarn install
 4.  🔒 Environment
 
 Por padrão, após a instalação das dependências a aplicação vem com um módulo de configuração que pode ler todas as variáveis ​​de ambiente do arquivo `.env`.
-Utilizando de uma boa prática, as urls da api que retornar e recebe todas as informações para o funcionamento do front end, e a chave da api do Google Maps que libera a utilzação da ferramenta devem ser configuradas como variáveis de ambiente. Então, você deve configurar estas variáveis com os valores da url base do back end e a chave do Google Maps. Para isso, basta criar um arquivo `.env` com as variáveis de ambiente.
-Para mais informações sobre variáveis de ambiente no ReactJS, acesse [ReactJS Environment Variables](https://backefront.com.br/como-criar-variavel-ambiente-react/).
+Utilizando de uma boa prática, a url da api que retorna e recebe todas as informações para o funcionamento do front end, e a chave da api do Google Maps que libera a utilzação da ferramenta, devem ser configuradas como variáveis de ambiente. Então, você deve configurar estas variáveis com os valores da url base do back end e a chave do Google Maps. Para isso, basta criar um arquivo `.env` com as variáveis de ambiente. Siga o exemplo abaixo:
 
 ```bash
 # Crie um arquivo .env usando de exemplo o arquivo .env.example
@@ -82,6 +81,8 @@ $ cp .env.example .env
 | ----------------------------- | --------------------------- | ------------------------ |
 | REACT_APP_BASE_URL            | URL BASE DA API DO BACKEND  | https://exemplodeurl.com |
 | REACT_APP_GOOGLE_MAPS_API_KEY | CHAVE DA API DO GOOGLE MAPS | AaBbCcDdEXEMPLO123456789 |
+
+Para mais informações sobre variáveis de ambiente no ReactJS, acesse [ReactJS Environment Variables](https://backefront.com.br/como-criar-variavel-ambiente-react/).
 
 5. Start da aplicação:
 
