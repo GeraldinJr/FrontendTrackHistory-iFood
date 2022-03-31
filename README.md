@@ -22,6 +22,11 @@ Para o repositorio do back end acesse: [BackendTrackHistory-iFood](https://githu
 - [Lucas Fernandes](https://github.com/lucasfpds)
 - [Magnólia Medeiros](https://github.com/magnoliamedeiros)
 
+### Mentor
+
+- [João Lello]()
+
+
 ## - Tecnologias
 
 - [Html](https://developer.mozilla.org/pt-BR/docs/Web/HTML)
