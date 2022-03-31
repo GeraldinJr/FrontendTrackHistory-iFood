@@ -14,7 +14,7 @@
     O aplicativo é desenvolvido com o objetivo de facilitar o processo de entrega dessas refeições e trazer dados relevantes sobre esse processo.
 </p>
 
-Acesse no [site](https://www.trackhistoryifood.tk/)<br>
+Acesse no [trackhistoryifood.tk/](https://www.trackhistoryifood.tk/)<br>
 Para o repositorio do back end acesse: [Github](https://github.com/GeraldinJr/BackendTrackHistory-iFood/tree/hml)<br>
 
 ### 💻 Desenvolvedores
@@ -102,6 +102,7 @@ Voce poderá nessa aplicação:
 - Concluir ou Cancelar o pedido
 - Deslogar da aplicação.
 
-
+### 📝 Cadastro e Login
+<img height="50" width="30" src="./src/assets/cadastro.gif">
 
 ###### tags: `Html` `Css` `React JS`  `JavaScript`  `TypeScript` `MUI Styled Components` `React Router DOM` `MUI Styled Components` `Eslint` `Prettier`
