@@ -24,7 +24,7 @@ Para o repositorio do back end acesse: [BackendTrackHistory-iFood](https://githu
 
 ### Mentor
 
-- [João Lello]()
+- [João Lello](https://github.com/joaodelello)
 
 
 ## - Tecnologias
