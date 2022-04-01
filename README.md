@@ -1,70 +1,139 @@
-# Getting Started with Create React App
+# Track History iFood
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<div align="center">
+<img height="400" width="200" src="./src/assets/start.gif"><br>
+</div>
 
-## Available Scripts
+## - Sobre o projeto
 
-In the project directory, you can run:
+<p>
+    O Track History iFood é uma aplicação web que permite as pessoas entregadoras selecionarem pedidos feitos por clientes e realizar sua respectiva entrega.
+    O aplicativo é desenvolvido com os objetivos de facilitar o processo de entrega dessas refeições, trazer dados relevantes sobre esse processo e armazená-los.
+</p>
 
-### `npm start`
+Acesse no [trackhistoryifood.tk/](https://www.trackhistoryifood.tk/)<br>
+Para o repositorio do back end acesse: [BackendTrackHistory-iFood](https://github.com/GeraldinJr/BackendTrackHistory-iFood)<br>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### 💻 Desenvolvedores
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- [Debora Brum](https://github.com/DeboraBrum)
+- [Edvan Júnior](https://github.com/Edvan-Jr)
+- [Geraldo Júnior](https://github.com/GeraldinJr)
+- [Lucas Fernandes](https://github.com/lucasfpds)
+- [Magnólia Medeiros](https://github.com/magnoliamedeiros)
 
-### `npm test`
+### Mentor
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- [João Lello](https://github.com/joaodilello)
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## - Tecnologias
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- [Html](https://developer.mozilla.org/pt-BR/docs/Web/HTML)
+- [Css](https://developer.mozilla.org/pt-BR/docs/Web/CSS)
+- [JavaScript](https://www.javascript.com/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [ReactJS](https://reactjs.org/)
+- [React Router DOM](https://reacttraining.com/react-router/)
+- [MUI Styled Components](https://mui.com/pt/)
+- [Eslint](https://eslint.org/)
+- [Prettier](https://prettier.io/)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Pré-requisitos
 
-### `npm run eject`
+- [NodeJS](https://nodejs.org/en/download/)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+<br>
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```bash
+#Fazer o fork do repositório para sua conta
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+#Executar git clone do seu fork no terminal para clonar o repositório
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+$ git clone https://github.com/GeraldinJr/FrontendTrackHistory-iFood.git && cd FrontendTrackHistory-iFood
+```
 
-## Learn More
+<br>
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Passos para montar o ambiente local
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+1. Instalar o Yarn
 
-### Code Splitting
+```sh
+npm install -g Yarn
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+3. Instalar dependências:
 
-### Analyzing the Bundle Size
+```sh
+yarn install
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+4.  🔒 Environment
 
-### Making a Progressive Web App
+Por padrão, após a instalação das dependências a aplicação vem com um módulo de configuração que pode ler todas as variáveis ​​de ambiente do arquivo `.env`.
+Utilizando de uma boa prática, a url da api que retorna e recebe todas as informações para o funcionamento do front end, e a chave da api do Google Maps que libera a utilzação da ferramenta, devem ser configuradas como variáveis de ambiente. Então, você deve configurar estas variáveis com os valores da url base do back end e a chave do Google Maps. Para isso, basta criar um arquivo `.env` com as variáveis de ambiente. Siga o exemplo abaixo:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+```bash
+# Crie um arquivo .env usando de exemplo o arquivo .env.example
+$ cp .env.example .env
+```
 
-### Advanced Configuration
+| Key                           | Description                 | Default Value            |
+| ----------------------------- | --------------------------- | ------------------------ |
+| REACT_APP_BASE_URL            | URL BASE DA API DO BACKEND  | https://exemplodeurl.com |
+| REACT_APP_GOOGLE_MAPS_API_KEY | CHAVE DA API DO GOOGLE MAPS | AaBbCcDdEXEMPLO123456789 |
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+Para mais informações sobre variáveis de ambiente no ReactJS, acesse [ReactJS Environment Variables](https://backefront.com.br/como-criar-variavel-ambiente-react/).
 
-### Deployment
+5. Start da aplicação:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+```sh
+yarn start
+```
 
-### `npm run build` fails to minify
+6. Aplicação ficará disponível em **http://localhost:3000**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## - Funcionalidades
+
+Voce poderá nessa aplicação:
+
+- Cadastrar e fazer login de uma pessoa entregadora.
+- Listar os pedidos em aberto.
+  - Selecionar um pedido para entrega.
+- Iniciar a entrega do pedido.
+- Ver o registro do trajeto percorrido em tempo real.
+  - Concluir ou Cancelar o pedido
+- Deslogar da aplicação.
+
+### 📝 Cadastro e Login
+
+<div>
+<img height="400" width="200" src="./src/assets/cadastro.gif">
+<img height="400" width="200" src="./src/assets/login.gif">
+</div>
+<br>
+Nesta tela você poderá cadastrar e fazer login de uma pessoa entregadora registrando um nome de usuario, email e senha com no mínimo 6 caracteres. Caso um login já tenha sido feito anteriormente você será direcionado para a tela de pedidos em aberto.
+
+### 📝 Listar os pedidos em aberto
+
+<img height="400" width="200" src="./src/assets/listarPedidos.gif"><br>
+Nesta tela você poderá listar os pedidos em aberto e escolher um para realizar a entrega.
+
+### 📝 Iniciar a entrega do pedido
+
+<img height="400" width="200" src="./src/assets/iniciarEntrega.gif"><br>
+Nesta tela você terá um detalhamento do pedido e poderá iniciar a entrega.
+
+### 📝 Ver o registro do trajeto percorrido em tempo real
+
+<img height="400" width="200" src="./src/assets/trajeto.gif"><br>
+Nesta Tela você poderá ver o registro do trajeto percorrido em tempo real além de concluir ou cancelar o pedido.
+Em caso de fazer o logout, ou sair da aplicação por qualquer motivo com um pedido em rota, a aplicação permanecerá nessa tela até conclusão ou cancelamento do pedido. Ao entrar novamente você será redirecionado diretamente para esta tela de rastreamento.
+
+### 📝 Deslogar da aplicação
+
+<img height="400" width="200" src="./src/assets/logout.gif"><br>
+No menu superior você poderá deslogar da aplicação. Ao sair todas as informações do usuário que foram armazenadas localmente serão apagadas.
+
+###### tags: `Html` `Css` `React JS` `JavaScript` `TypeScript` `MUI Styled Components` `React Router DOM` `MUI Styled Components` `Eslint` `Prettier`

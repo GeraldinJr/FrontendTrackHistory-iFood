@@ -1,13 +1,69 @@
-body {
+* {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+html {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #282727;
+  height: max-content;
+}
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #fff;
+  border-radius: 10px;
+  width: 414px;
+  height: 100vh;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.container-top{
+  display: flex;
+  position: fixed;
+  top: 0;
+  background-color: #282727;
+  z-index: 7;
+  height: 5vh;
+  width: 100%;
+}
+@media (max-width: 414.98px) {
+  html {
+    background-color: transparent;
+  }
+  body {
+    width: 100vw;
+  }
+  #root .app-header {
+    width: 100% !important;
+    border-radius: 0;
+  }
+  .orders .pageNumbers {
+    width: 95vw !important;
+  }
+  .orders .div-btns-orders {
+    width: 95vw !important;
+  }
+  .container-modal {
+    width: 100vw !important;
+  }
+  .container-maps {
+    width: 90vw !important;
+  }
+}
+@media (max-height: 744px) {
+  main {
+    height: max-content;
+  }
 }

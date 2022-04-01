@@ -1,11 +1,15 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
+import React from "react";
+import ReactDOM from "react-dom";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import "./index.css";
+import Routes from "./routes";
+import "./helpers/pomodoroFonts/css/index.css";
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Routes />
+    <ToastContainer limit={1} />
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById("root")
 );

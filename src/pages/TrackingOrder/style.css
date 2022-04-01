@@ -1,0 +1,59 @@
+.div-tracking {
+  height: 100vh;
+  padding: 10vh 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  align-items: center;
+}
+.div-tracking>div{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1vh;
+}
+.div-tracking img{
+  width: 80%;
+  height: 95%;
+  margin: 5vh 0;
+}
+
+.div-tracking .tracking-btns {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: row;
+  margin-top: 7vh;
+}
+.div-tracking .tracking-btns > * {
+  width: 40%;
+  border: none;
+  cursor: pointer;
+}
+.div-tracking .tracking-btns > * p {
+  color: #fff;
+  font-weight: bold;
+}
+.div-tracking .tracking-btns .btn-complete {
+  background-color: #2b9042;
+}
+.div-tracking .tracking-btns .btn-complete:hover {
+  background-color: #fff;
+  border: 2px solid #2b9042;
+}
+
+.div-tracking .tracking-btns .btn-complete:hover p {
+  color: #2b9042;
+}
+
+.div-tracking .tracking-btns .btn-cancel:hover {
+  background-color: #fff;
+  border: 2px solid #ea1d2c;
+
+}
+.div-tracking .tracking-btns .btn-cancel:hover p {
+  color: #ea1d2c;
+}
