@@ -100,7 +100,7 @@ export default function TrackingOrder() {
         });
         setGenericLocation(arrayLct);
       }
-    }, 3000);
+    }, 30000);
     geoLocation.current = interval;
   }, []);
 
