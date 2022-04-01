@@ -3,33 +3,35 @@
   flex-direction: column;
   align-items: center;
   gap: 1vh;
-  margin-top: 8vh;
   background-color: #fff;
+  width: 100%;
+  margin-bottom: auto;
 }
 
 .orders h1 {
-  padding: 9vh 0 0 0;
   position: fixed;
-  top: 0;
-  /* background-color: #fff; */
-  background-color: #F5F0EB;
+  top: 7vh;
+  background-color: #f5f0eb;
   width: 414px;
-  height: 15vh;
+  height: 7vh;
   z-index: 8;
   text-align: center;
   border-radius: 10px 10px 0 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .orders .orders-table {
-  margin: 10vh 0 20vh 0;
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 1vh;
-  overflow-y: scroll;
-  overflow: hidden;
   background-color: #fff;
+  padding: 20vh 0;
+  margin-top: 15vh;
+  overflow-y: scroll;
 }
 
 .order {
@@ -63,7 +65,6 @@
   padding: 1% 0 2% 0;
   width: 394px;
   background-color: #fff;
-  display: none;
 }
 .orders .div-btns-orders > p {
   font-size: 1.2rem;
@@ -93,4 +94,59 @@
 .orders .div-btns-orders * p {
   color: #fff;
   font-weight: bolder;
+}
+
+.orders .pageNumbers {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  position: fixed;
+  bottom: 1vh;
+  width: 394px;
+  background-color: #fff;
+  padding-top: 2vh;
+}
+.orders .pageNumbers p {
+  font-size: 1.2rem;
+  width: 20%;
+  text-align: center;
+}
+
+.orders .pageNumbers .btn-prev-prox {
+  width: 40%;
+}
+.orders .pageNumbers button {
+  border: none;
+  width: 100%;
+  height: 40px;
+  background-color: #ea1d2c;
+  border-radius: 4px;
+  color: #fff;
+  font-weight: bold;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  cursor: pointer;
+}
+.orders .pageNumbers button:hover {
+  background-color: #fff;
+  color: #ea1d2c;
+  border: 2px solid #ea1d2c;
+}
+.orders .pageNumbers .disable {
+  background-color: #a6a29f;
+  color: #fff;
+}
+.orders .pageNumbers .disable:hover {
+  background-color: #a6a29f;
+  color: #fff;
+  border: none;
+}
+.orders .pageNumbers button > p {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }

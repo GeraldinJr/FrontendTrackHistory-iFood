@@ -9,8 +9,8 @@
   width: 414px;
   border-radius: 10px 10px 0 0;
   z-index: 9;
-  border-color: aqua;
   align-items: center;
+  /* display: none!important; */
 }
 .app-header h3 {
   color: #fff;

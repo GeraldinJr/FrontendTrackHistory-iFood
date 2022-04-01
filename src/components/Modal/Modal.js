@@ -5,7 +5,6 @@ import Button from "../Button";
 import "./style.css";
 
 export default function Modal() {
-  // eslint-disable-next-line object-curly-newline
   const {
     openModal,
     modalText,
@@ -13,21 +12,60 @@ export default function Modal() {
     geoLocation,
     selectedOrder,
     location,
+    removeOrder,
+    hasOrderTracking,
+    setTrackingStarted,
+    setGenericLocation,
   } = useGlobal();
 
-  const { post } = useRequest();
+  const { patch } = useRequest();
   const history = useHistory();
 
   function handleClick(params) {
     if (params === "confirm" && modalText === "CONFIRMAR") {
       setOpenModal(false);
       clearInterval(geoLocation.current);
-      post(`/pedidos/${selectedOrder.id}/concluir`, location.current, true);
-      history.push("/pedidos");
+      const result = patch(
+        `/pedidos/${selectedOrder.id}/concluir`,
+        location.current,
+        true
+      );
+      if (result) {
+        setTimeout(() => {
+          history.push("/pedidos");
+          removeOrder();
+          hasOrderTracking.current = false;
+          setTrackingStarted(false);
+          setGenericLocation([
+            {
+              lat: 0,
+              lng: 0,
+            },
+          ]);
+        }, 1000);
+      }
     } else if (params === "confirm" && modalText === "CANCELAR") {
       setOpenModal(false);
       clearInterval(geoLocation.current);
-      post(`/pedidos/${selectedOrder.id}/cancelar`, location.current, true);
+      const result = patch(
+        `/pedidos/${selectedOrder.id}/cancelar`,
+        location.current,
+        true
+      );
+      if (result) {
+        setTimeout(() => {
+          history.push("/pedidos");
+          removeOrder();
+          hasOrderTracking.current = false;
+          setTrackingStarted(false);
+          setGenericLocation([
+            {
+              lat: 0,
+              lng: 0,
+            },
+          ]);
+        }, 1000);
+      }
     } else {
       setOpenModal(false);
     }
