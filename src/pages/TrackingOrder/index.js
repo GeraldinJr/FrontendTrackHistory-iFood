@@ -119,10 +119,6 @@ export default function TrackingOrder() {
     return <div />;
   }
 
-  console.log(geoLocation.current);
-  setInterval(() => {
-    console.log(geoLocation.current);
-  }, 1000);
   return (
     <div className="div-tracking">
       <div className="">
