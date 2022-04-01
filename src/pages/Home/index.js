@@ -13,7 +13,7 @@ export default function Home() {
       history.push("/cadastrar");
     }
   }
-
+  navigator.geolocation.getCurrentPosition((e) => e);
   return (
     <div className="container-home">
       <h3 style={{ fontWeight: "normal" }}>
